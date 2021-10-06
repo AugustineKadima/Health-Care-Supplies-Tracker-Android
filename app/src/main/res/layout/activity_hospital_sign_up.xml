@@ -103,7 +103,7 @@
             android:layout_below="@id/hospital_location"
             android:layout_margin="16dp"/>
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/hospital_create_account"
+            android:id="@+id/btn_hospital_create_account"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/healthCareDarkBlue"
@@ -113,6 +113,18 @@
             android:textSize="18sp"
             android:layout_below="@id/hospital_password"
             android:elevation="4dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Login instead?"
+            android:textSize="18dp"
+            android:textColor="@color/healthCareDarkBlue"
+            android:textStyle="bold"
+            android:layout_below="@id/btn_hospital_create_account"
+            android:gravity="center"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="16dp"/>
+
     </RelativeLayout>
 
 </ScrollView>
