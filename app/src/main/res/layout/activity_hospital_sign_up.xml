@@ -1,9 +1,118 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".login_signup.HospitalSignUP">
+    tools:context=".login_signup.HospitalSignUP"
+    android:background="@color/healthCareWhiteBlue">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/hospital_signup_link"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hospital"
+            android:textColor="@color/healthCareDarkBlue"
+            android:textSize="24dp"
+            android:textStyle="bold"
+            android:layout_margin="16dp"/>
+        <TextView
+            android:id="@+id/donor_signup_link"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Donor"
+            android:textColor="@color/healthCareGrey"
+            android:textSize="24dp"
+            android:textStyle="bold"
+            android:layout_alignParentEnd="true"
+            android:layout_margin="16dp"
+            />
+        <EditText
+            android:id="@+id/hospital_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Hospital Name"
+            android:textColorHint="@color/teal_200"
+            android:minHeight="48dp"
+            android:elevation="4dp"
+            android:padding="8dp"
+            android:inputType="text"
+            android:background="@color/white"
+            android:layout_below="@id/donor_signup_link"
+            android:layout_margin="16dp"/>
+
+        <EditText
+            android:id="@+id/hospital_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Email"
+            android:textColorHint="@color/teal_200"
+            android:minHeight="48dp"
+            android:elevation="4dp"
+            android:padding="8dp"
+            android:inputType="textWebEmailAddress"
+            android:background="@color/white"
+            android:layout_below="@id/hospital_name"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"/>
+
+        <EditText
+            android:id="@+id/hospital_phone_number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Phone Number"
+            android:textColorHint="@color/teal_200"
+            android:minHeight="48dp"
+            android:elevation="4dp"
+            android:padding="8dp"
+            android:inputType="number"
+            android:background="@color/white"
+            android:layout_below="@id/hospital_email"
+            android:layout_margin="16dp"/>
+
+        <EditText
+            android:id="@+id/hospital_location"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Location"
+            android:textColorHint="@color/teal_200"
+            android:minHeight="48dp"
+            android:elevation="4dp"
+            android:padding="8dp"
+            android:inputType="text"
+            android:background="@color/white"
+            android:layout_below="@id/hospital_phone_number"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"/>
+
+        <EditText
+            android:id="@+id/hospital_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Password"
+            android:textColorHint="@color/teal_200"
+            android:minHeight="48dp"
+            android:elevation="4dp"
+            android:padding="8dp"
+            android:inputType="textPassword"
+            android:background="@color/white"
+            android:layout_below="@id/hospital_location"
+            android:layout_margin="16dp"/>
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/hospital_create_account"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/healthCareDarkBlue"
+            android:text="Create Account"
+            android:layout_margin="16dp"
+            android:minHeight="48dp"
+            android:textSize="18sp"
+            android:layout_below="@id/hospital_password"
+            android:elevation="4dp"/>
+    </RelativeLayout>
+
+</ScrollView>
