@@ -58,6 +58,8 @@
         android:layout_below="@id/login_password"
         android:textSize="16sp"
         android:layout_marginStart="16dp"
+        android:layout_marginBottom="16dp
+"
       />
 
 
