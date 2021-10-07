@@ -117,6 +117,7 @@
             android:layout_below="@id/donor_password"
             android:elevation="4dp"/>
         <TextView
+            android:id="@+id/login_instead"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Login instead?"
