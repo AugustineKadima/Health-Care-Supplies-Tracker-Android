@@ -1,5 +1,6 @@
 package com.moringaschool.healthcaresuppliestracker.login_signup;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -11,13 +12,22 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.moringaschool.healthcaresuppliestracker.R;
+
+import java.util.HashMap;
 
 public class HospitalSignUP extends AppCompatActivity {
 
     TextView donor_sign_up_link, login_instead;
     Button btn_create_account;
     EditText hospital_name, hospital_email, hospital_password, hospital_location, hospital_phone_number;
+
+    FirebaseDatabase database = FirebaseDatabase.getInstance();
+    DatabaseReference myRef = database.getReference("hospitals");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,7 +88,22 @@ public class HospitalSignUP extends AppCompatActivity {
                     hospital_phone_number.setError("Phone number required!");
                     hospital_phone_number.requestFocus();
                 }else{
-                    startActivity(new Intent(HospitalSignUP.this, Login.class));
+
+                    HashMap<String, String> hospitalMap = new HashMap<>();
+                    hospitalMap.put("hospitalName", hospitalName);
+                    hospitalMap.put("hospitalEmail", hospitalEmail);
+                    hospitalMap.put("hospitalLocation",hospitalLocation);
+                    hospitalMap.put("hospitalPhoneNumber", hospitalPhoneNumber);
+                    hospitalMap.put("hospitalPassword", hospitalPassword);
+
+                    myRef.push().setValue(hospitalMap).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            Toast.makeText(HospitalSignUP.this, "Account created successfully.", Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(HospitalSignUP.this, Login.class));
+
+                        }
+                    });
 
                 }
 

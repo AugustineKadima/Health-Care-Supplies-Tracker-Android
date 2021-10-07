@@ -1,5 +1,6 @@
 package com.moringaschool.healthcaresuppliestracker.login_signup;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -11,13 +12,23 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.moringaschool.healthcaresuppliestracker.R;
+
+import java.util.HashMap;
 
 public class DonorSignUp extends AppCompatActivity {
 
     TextView hospital_sign_up_link, sign_up_instead;
     Button create_account;
     EditText donor_name, donor_email, donor_password, donor_location, donor_phone_number;
+
+    // Write a message to the database
+    FirebaseDatabase database = FirebaseDatabase.getInstance();
+    DatabaseReference myRef = database.getReference("donors");
 
 
     @Override
@@ -78,7 +89,21 @@ public class DonorSignUp extends AppCompatActivity {
                     donor_phone_number.setError("Phone number required!");
                     donor_phone_number.requestFocus();
                 }else {
-                    startActivity(new Intent(DonorSignUp.this, Login.class));
+
+                    HashMap<String, String> donorMap = new HashMap<>();
+                    donorMap.put("donorName", donorName);
+                    donorMap.put("donorEmail", donorEmail);
+                    donorMap.put("donorPassword", donorPassword);
+                    donorMap.put("donorPhoneNumber", donorPhoneNumber);
+                    donorMap.put("donorLocation", donorLocation);
+
+                    myRef.push().setValue(donorMap).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            Toast.makeText(DonorSignUp.this, "Account created successfully.", Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(DonorSignUp.this, Login.class));
+                        }
+                    });
                 }
             }
         });

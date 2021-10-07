@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "38990460774",
+    "project_id": "healthcaredonationstracker",
+    "storage_bucket": "healthcaredonationstracker.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:38990460774:android:e9035f47b5ecb065c5baa7",
+        "android_client_info": {
+          "package_name": "com.moringaschool.healthcaresuppliestracker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "38990460774-4pdkmjgasf9glafigh9heq8kouslbnf7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.moringaschool.healthcaresuppliestracker",
+            "certificate_hash": "5092ca5f7637343cf868676db8c430b76cbf006f"
+          }
+        },
+        {
+          "client_id": "38990460774-14v1u8f6g42es2u6qf5pelhmq1e1ddaf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAT7WlRG_s36lEOJunmNpHlWIF0TjmWh0g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "38990460774-14v1u8f6g42es2u6qf5pelhmq1e1ddaf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
