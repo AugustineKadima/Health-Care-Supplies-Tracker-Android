@@ -100,8 +100,14 @@ public class DonorSignUp extends AppCompatActivity {
                     myRef.push().setValue(donorMap).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
-                            Toast.makeText(DonorSignUp.this, "Account created successfully.", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(DonorSignUp.this, Login.class));
+
+                            if(task.isSuccessful()){
+                                Toast.makeText(DonorSignUp.this, "Account created successfully.", Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(DonorSignUp.this, Login.class));
+                            }else{
+                                Toast.makeText(DonorSignUp.this, "Failed! Try again.", Toast.LENGTH_SHORT).show();
+                            }
+
                         }
                     });
                 }

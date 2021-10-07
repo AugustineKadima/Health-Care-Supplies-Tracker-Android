@@ -99,8 +99,14 @@ public class HospitalSignUP extends AppCompatActivity {
                     myRef.push().setValue(hospitalMap).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
-                            Toast.makeText(HospitalSignUP.this, "Account created successfully.", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(HospitalSignUP.this, Login.class));
+
+                            if(task.isSuccessful()){
+                                Toast.makeText(HospitalSignUP.this, "Account created successfully.", Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(HospitalSignUP.this, Login.class));
+                            }else{
+                                Toast.makeText(HospitalSignUP.this, "Failed! Try again.", Toast.LENGTH_SHORT).show();
+                            }
+
 
                         }
                     });
