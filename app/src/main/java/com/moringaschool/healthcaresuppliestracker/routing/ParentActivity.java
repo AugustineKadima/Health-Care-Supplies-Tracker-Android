@@ -7,6 +7,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -14,10 +15,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.moringaschool.healthcaresuppliestracker.R;
+import com.moringaschool.healthcaresuppliestracker.fragments.InStockFragment;
 import com.moringaschool.healthcaresuppliestracker.fragments.NewOrderFragment;
+import com.moringaschool.healthcaresuppliestracker.fragments.TrackFragment;
 
 public class ParentActivity extends AppCompatActivity {
-    TextView new_order;
+    TextView new_order, track, in_stock;
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main_menu, menu);
@@ -46,6 +50,8 @@ public class ParentActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         new_order =(TextView) findViewById(R.id.new_order_header);
+        track = (TextView) findViewById(R.id.track_orders_header);
+        in_stock = (TextView) findViewById(R.id.in_stock_header);
 
 //      Navigate to the order fragment
         new_order.setOnClickListener(new View.OnClickListener() {
@@ -55,7 +61,24 @@ public class ParentActivity extends AppCompatActivity {
             }
         });
 
+//      Navigate to track orders fragment
+        track.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                trackOrder();
+            }
 
+
+        });
+
+//        Navigate to InStock
+        in_stock.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                inStock();
+            }
+
+        });
 
     }
 
@@ -66,6 +89,20 @@ public class ParentActivity extends AppCompatActivity {
         fragmentTransaction.add(R.id.fragment_container_pages, newOrderFragment);
         fragmentTransaction.commit();
     }
+    private void trackOrder() {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        TrackFragment trackFragment = new TrackFragment();
+        fragmentTransaction.add(R.id.fragment_container_pages, trackFragment);
+        fragmentTransaction.commit();
 
+    }
+    private void inStock() {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        InStockFragment inStockFragment = new InStockFragment();
+        fragmentTransaction.add(R.id.fragment_container_pages, inStockFragment);
+        fragmentTransaction.commit();
+    }
 
 }

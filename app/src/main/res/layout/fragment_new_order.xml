@@ -75,11 +75,14 @@
         android:id="@+id/btn_confirm_order"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/healthCareDarkBlue"
-        android:text="Confirm Order"
-        android:layout_margin="16dp"
-        android:minHeight="48dp"
-        android:textSize="18sp"
         android:layout_below="@id/item_donor"
-        android:elevation="4dp"/>
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@color/healthCareDarkBlue"
+        android:elevation="4dp"
+        android:minHeight="48dp"
+        android:text="Confirm Order"
+        android:textSize="18sp" />
 </RelativeLayout>
