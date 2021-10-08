@@ -1,0 +1,16 @@
+package com.moringaschool.healthcaresuppliestracker.donor;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+
+import com.moringaschool.healthcaresuppliestracker.R;
+
+public class DonorRequestList extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_donor_request_list);
+    }
+}
