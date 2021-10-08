@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.HealthCareSuppliesTracker">
         <activity
+            android:name=".routing.ParentActivity"
+            android:exported="true" />
+        <activity
             android:name=".login_signup.Login"
             android:exported="true" />
         <activity
