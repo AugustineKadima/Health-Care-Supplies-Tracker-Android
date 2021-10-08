@@ -3,10 +3,21 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/layout/activity_donor_dispatch_item.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/activity_donor_dispatches.xml" value="0.10555555555555556" />
+        <entry key="app/src/main/res/layout/activity_donor_request_item.xml" value="0.10555555555555556" />
+        <entry key="app/src/main/res/layout/activity_donor_request_list.xml" value="0.10555555555555556" />
         <entry key="app/src/main/res/layout/activity_donor_sign_up.xml" value="0.19322916666666667" />
         <entry key="app/src/main/res/layout/activity_hospital_sign_up.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/activity_item_details.xml" value="0.10555555555555556" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/activity_new_order.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_parent.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/activity_request_list_item.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_hospital_navigation.xml" value="0.21" />
+        <entry key="app/src/main/res/layout/fragment_new_order.xml" value="0.22" />
+        <entry key="app/src/main/res/menu/main_menu.xml" value="0.21" />
       </map>
     </option>
   </component>
