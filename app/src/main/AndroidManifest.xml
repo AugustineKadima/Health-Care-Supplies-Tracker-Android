@@ -10,6 +10,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.HealthCareSuppliesTracker">
         <activity
+
+            android:name=".hospital.NewOrderActivity"
+            android:exported="true" />
+        <activity
+            android:name=".hospital.TrackOrderActivity"
+            android:exported="true" />
+        <activity
+            android:name=".hospital.ItemDetailsActivity"
+            android:exported="true" />
+        <activity
+            android:name=".hospital.StockActivity"
+
             android:name=".donor.DonorDispatchItem"
             android:exported="true" />
         <activity
@@ -20,6 +32,7 @@
             android:exported="true" />
         <activity
             android:name=".donor.DonorRequestList"
+
             android:exported="true" />
         <activity
             android:name=".login_signup.Login"

@@ -34,19 +34,23 @@
             android:layout_alignParentEnd="true"
             android:layout_margin="16dp"
             />
+
         <EditText
             android:id="@+id/donor_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Donor Name"
-            android:textColorHint="@color/teal_200"
-            android:minHeight="48dp"
-            android:elevation="4dp"
-            android:padding="8dp"
-            android:inputType="text"
-            android:background="@color/white"
             android:layout_below="@id/donor_signup_link"
-            android:layout_margin="16dp"/>
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:background="@color/white"
+            android:elevation="4dp"
+            android:hint="Donor Name"
+            android:inputType="text"
+            android:minHeight="48dp"
+            android:padding="8dp"
+            android:textColorHint="@color/teal_200" />
 
         <EditText
             android:id="@+id/donor_email"
@@ -96,15 +100,18 @@
             android:id="@+id/donor_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Password"
-            android:textColorHint="@color/teal_200"
-            android:minHeight="48dp"
-            android:elevation="4dp"
-            android:padding="8dp"
-            android:inputType="textPassword"
-            android:background="@color/white"
             android:layout_below="@id/donor_location"
-            android:layout_margin="16dp"/>
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:background="@color/white"
+            android:elevation="4dp"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:minHeight="48dp"
+            android:padding="8dp"
+            android:textColorHint="@color/teal_200" />
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn_donor_create_account"
             android:layout_width="match_parent"
