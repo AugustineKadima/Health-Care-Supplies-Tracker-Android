@@ -3,6 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/delete_24.xml" value="0.14351851851851852" />
+        <entry key="app/src/main/res/drawable/ic_baseline_delete_forever_24.xml" value="0.14351851851851852" />
+        <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/menu_icon.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/search_24.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_donor.xml" value="0.21" />
         <entry key="app/src/main/res/layout/activity_donor_dispatch_item.xml" value="0.22" />
         <entry key="app/src/main/res/layout/activity_donor_dispatches.xml" value="0.10555555555555556" />
@@ -16,10 +22,19 @@
         <entry key="app/src/main/res/layout/activity_new_order.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_parent.xml" value="0.22" />
         <entry key="app/src/main/res/layout/activity_request_list_item.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/dispatches_list_item.xml" value="0.18" />
+        <entry key="app/src/main/res/layout/donor_list_item.xml" value="0.18" />
+        <entry key="app/src/main/res/layout/fragment_all_requests.xml" value="0.18" />
+        <entry key="app/src/main/res/layout/fragment_dispatches.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_hospital_navigation.xml" value="0.21" />
         <entry key="app/src/main/res/layout/fragment_in_stock.xml" value="0.10555555555555556" />
+        <entry key="app/src/main/res/layout/fragment_item_request.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/fragment_item_stock.xml" value="0.18" />
         <entry key="app/src/main/res/layout/fragment_new_order.xml" value="0.22" />
         <entry key="app/src/main/res/layout/fragment_track.xml" value="0.21" />
+        <entry key="app/src/main/res/layout/selected_request.xml" value="0.10555555555555556" />
+        <entry key="app/src/main/res/layout/stock_list_item.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/track_order_item.xml" value="0.25" />
         <entry key="app/src/main/res/menu/main_menu.xml" value="0.21" />
       </map>
     </option>

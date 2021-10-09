@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:elevation="4dp"
+        android:minHeight="60dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp">
+
+        <TextView
+            android:id="@+id/donor_item_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Product name"
+            android:textColor="@color/healthCareDarkBlue"
+            android:textStyle="bold"
+            android:textSize="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="4dp"/>
+
+        <TextView
+            android:id="@+id/donor_item_hospital"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hospital Name"
+            android:textColor="@color/healthCareGrey"
+            android:textStyle="bold"
+            android:layout_below="@id/donor_item_name"
+            android:textSize="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="4dp"/>
+
+        <TextView
+            android:id="@+id/donor_item_quantity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Quantity:"
+            android:textColor="@color/healthCareGrey"
+            android:textStyle="bold"
+            android:layout_below="@id/donor_item_hospital"
+            android:textSize="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="16dp"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_donor_deliver"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginStart="16dp"
+            android:text="Deliver"
+            android:background="@color/healthCareWhiteBlue"
+            android:textColor="@color/black"
+            android:elevation="8px"
+            android:padding="8px"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:minHeight="48dp"
+            android:layout_marginBottom="16dp"
+
+            />
+</RelativeLayout>
+</RelativeLayout>

@@ -3,11 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.ItemStockFragment"
+    tools:context=".fragments.ItemRequestFragment"
     android:padding="16dp"
     android:background="@color/white"
     android:elevation="4dp">
 
+    <!-- TODO: Update blank fragment layout -->
     <TextView
         android:id="@+id/single_item_product_name"
         android:layout_width="wrap_content"
@@ -22,17 +23,17 @@
         android:id="@+id/single_item_donor_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Donor:"
+        android:text="Hospital:"
         android:layout_below="@id/single_item_product_name"
         android:textColor="@color/black"
         android:textSize="18sp"
         android:textStyle="bold"
-       />
+        />
     <TextView
         android:id="@+id/single_item_quantity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Quantity:"
+        android:text="Location:"
         android:layout_below="@id/single_item_donor_name"
         android:textColor="@color/black"
         android:textSize="18sp"
@@ -42,7 +43,7 @@
         android:id="@+id/single_item_order_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Date:"
+        android:text="Quantity:"
         android:layout_below="@id/single_item_quantity"
         android:textColor="@color/black"
         android:textSize="18sp"
@@ -52,24 +53,30 @@
         android:id="@+id/single_item_dispatch_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Dispatch Date:"
+        android:text="Delivery Status:"
         android:layout_below="@id/single_item_order_date"
         android:textColor="@color/black"
         android:textSize="18sp"
         android:textStyle="bold"
         />
 
-    <TextView
-        android:id="@+id/single_item_status"
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_confirm_delivery"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Dispatch Date:"
-        android:layout_below="@id/single_item_order_date"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@color/healthCareWhiteBlue"
+        android:elevation="8px"
+        android:minHeight="48dp"
+        android:padding="8px"
+        android:text="Deliver"
         android:textColor="@color/black"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        />
 
+        />
     <TextView
         android:id="@+id/single_item_map"
         android:layout_width="wrap_content"
@@ -81,8 +88,5 @@
         android:minHeight="48dp"
         android:layout_alignParentBottom="true"
         />
-
-
-
 
 </RelativeLayout>
