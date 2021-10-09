@@ -5,6 +5,7 @@ import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,13 +15,21 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.moringaschool.healthcaresuppliestracker.R;
 import com.moringaschool.healthcaresuppliestracker.fragments.InStockFragment;
 import com.moringaschool.healthcaresuppliestracker.fragments.NewOrderFragment;
 import com.moringaschool.healthcaresuppliestracker.fragments.TrackFragment;
+import com.moringaschool.healthcaresuppliestracker.view_model.OrderViewModel;
+
+import java.util.HashMap;
 
 public class ParentActivity extends AppCompatActivity {
     TextView new_order, track, in_stock;
+    OrderViewModel orderViewModel;
+    FirebaseDatabase database = FirebaseDatabase.getInstance();
+    DatabaseReference myRef = database.getReference("orders");
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -78,6 +87,14 @@ public class ParentActivity extends AppCompatActivity {
                 inStock();
             }
 
+        });
+
+       HashMap<String, String> newOrder = new HashMap<>();
+
+//        ViewModel logic
+        orderViewModel = new ViewModelProvider(this).get(OrderViewModel.class);
+        orderViewModel.getOrder().observe(this, order -> {
+            myRef.push().setValue(order);
         });
 
     }
