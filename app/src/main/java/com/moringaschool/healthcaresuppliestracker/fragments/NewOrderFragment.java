@@ -71,7 +71,6 @@ public class NewOrderFragment extends Fragment {
               String itemQuantity = item_quantity.getText().toString().trim();
               String itemDescription = item_description.getText().toString().trim();
               String donorEmail = donor_email.getText().toString().trim();
-                System.out.println("Fragment dt: " + itemName + " " + itemQuantity  + " " +itemDescription  + " " + donorEmail);
               orderViewModel.setData(itemName,itemQuantity,itemDescription, donorEmail);
             }
         });

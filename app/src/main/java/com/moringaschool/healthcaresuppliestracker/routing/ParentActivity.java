@@ -1,5 +1,6 @@
 package com.moringaschool.healthcaresuppliestracker.routing;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
@@ -15,6 +16,8 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.moringaschool.healthcaresuppliestracker.R;
@@ -94,7 +97,16 @@ public class ParentActivity extends AppCompatActivity {
 //        ViewModel logic
         orderViewModel = new ViewModelProvider(this).get(OrderViewModel.class);
         orderViewModel.getOrder().observe(this, order -> {
-            myRef.push().setValue(order);
+            myRef.push().setValue(order).addOnCompleteListener(new OnCompleteListener<Void>() {
+                @Override
+                public void onComplete(@NonNull Task<Void> task) {
+                    if(task.isSuccessful()){
+                        Toast.makeText(ParentActivity.this, "Order was successful", Toast.LENGTH_LONG).show();
+                    }else{
+                        Toast.makeText(ParentActivity.this, "Failed! Please try again", Toast.LENGTH_LONG).show();
+                    }
+                }
+            });
         });
 
     }
