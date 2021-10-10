@@ -103,7 +103,7 @@ public class DonorSignUp extends AppCompatActivity {
 
                             if(task.isSuccessful()){
                                 Toast.makeText(DonorSignUp.this, "Account created successfully.", Toast.LENGTH_SHORT).show();
-                                startActivity(new Intent(DonorSignUp.this, Login.class));
+                                startActivity(new Intent(DonorSignUp.this, DonorLoginActivity.class));
                             }else{
                                 Toast.makeText(DonorSignUp.this, "Failed! Try again.", Toast.LENGTH_SHORT).show();
                             }
