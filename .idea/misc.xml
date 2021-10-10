@@ -12,6 +12,7 @@
         <entry key="app/src/main/res/layout/activity_donor.xml" value="0.21" />
         <entry key="app/src/main/res/layout/activity_donor_dispatch_item.xml" value="0.22" />
         <entry key="app/src/main/res/layout/activity_donor_dispatches.xml" value="0.10555555555555556" />
+        <entry key="app/src/main/res/layout/activity_donor_login.xml" value="0.18" />
         <entry key="app/src/main/res/layout/activity_donor_request_item.xml" value="0.10555555555555556" />
         <entry key="app/src/main/res/layout/activity_donor_request_list.xml" value="0.10555555555555556" />
         <entry key="app/src/main/res/layout/activity_donor_sign_up.xml" value="0.19322916666666667" />
