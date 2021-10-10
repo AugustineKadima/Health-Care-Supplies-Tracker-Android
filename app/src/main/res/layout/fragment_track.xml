@@ -5,12 +5,18 @@
     android:layout_height="match_parent"
     tools:context=".fragments.TrackFragment">
 
-    <!-- TODO: Update blank fragment layout -->
+
     <TextView
+        android:id="@+id/nothing_to_show_here"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Track order fragment"
+        android:text="Nothing to show here!"
         android:layout_centerInParent="true"
+        android:gravity="center_horizontal"
+        android:textSize="18dp"
+        android:background="@color/white"
+        android:elevation="4dp"
+        android:padding="8dp"
         android:textColor="@color/healthCareGrey"/>
 
 </RelativeLayout>

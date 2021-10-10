@@ -7,6 +7,10 @@ public class Order {
     private String itemDescription;
     private String donorEmail;
 
+    public Order(){
+
+    }
+
     public Order(String itemName, String itemQuantity, String itemDescription, String donorEmail) {
         this.itemName = itemName;
         this.itemQuantity = itemQuantity;

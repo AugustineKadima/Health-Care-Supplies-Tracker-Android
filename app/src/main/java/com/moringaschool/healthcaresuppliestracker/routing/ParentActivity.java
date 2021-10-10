@@ -67,6 +67,8 @@ public class ParentActivity extends AppCompatActivity {
         track = (TextView) findViewById(R.id.track_orders_header);
         in_stock = (TextView) findViewById(R.id.in_stock_header);
 
+        inStock();
+
 //      Navigate to the order fragment
         new_order.setOnClickListener(new View.OnClickListener() {
             @Override
