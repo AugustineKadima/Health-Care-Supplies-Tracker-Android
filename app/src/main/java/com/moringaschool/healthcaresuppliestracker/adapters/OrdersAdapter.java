@@ -41,6 +41,12 @@ public class OrdersAdapter extends RecyclerView.Adapter<OrdersAdapter.ViewHolder
         Order order = orders.get(position);
         holder.item_name.setText(order.getItemName());
         holder.item_quantity.setText(order.getItemQuantity());
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
     }
 
     @Override
