@@ -3,20 +3,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.TrackFragment">
+    tools:context=".fragments.TrackFragment"
+    android:layout_marginBottom="16dp">
 
 
-    <TextView
-        android:id="@+id/nothing_to_show_here"
+<!--    <TextView-->
+<!--        android:id="@+id/nothing_to_show_here"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:text="Nothing to show here!"-->
+<!--        android:layout_centerInParent="true"-->
+<!--        android:gravity="center_horizontal"-->
+<!--        android:textSize="18dp"-->
+<!--        android:background="@color/white"-->
+<!--        android:elevation="4dp"-->
+<!--        android:padding="8dp"-->
+<!--        android:textColor="@color/healthCareGrey"/>-->
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view_track"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Nothing to show here!"
-        android:layout_centerInParent="true"
-        android:gravity="center_horizontal"
-        android:textSize="18dp"
-        android:background="@color/white"
-        android:elevation="4dp"
-        android:padding="8dp"
-        android:textColor="@color/healthCareGrey"/>
+        android:layout_height="match_parent"/>
 
 </RelativeLayout>

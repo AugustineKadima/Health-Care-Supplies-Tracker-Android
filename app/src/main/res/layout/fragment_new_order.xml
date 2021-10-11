@@ -85,5 +85,6 @@
         android:elevation="4dp"
         android:minHeight="48dp"
         android:text="Confirm Order"
-        android:textSize="18sp" />
+        android:textSize="18sp"
+        android:textAllCaps="false"/>
 </RelativeLayout>

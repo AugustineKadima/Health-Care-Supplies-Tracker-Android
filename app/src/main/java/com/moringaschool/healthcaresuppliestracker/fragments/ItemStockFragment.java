@@ -10,11 +10,7 @@ import android.view.ViewGroup;
 
 import com.moringaschool.healthcaresuppliestracker.R;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link ItemStockFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+
 public class ItemStockFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match

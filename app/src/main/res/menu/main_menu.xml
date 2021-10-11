@@ -19,5 +19,10 @@
         android:title="Logout"
         android:icon="@drawable/menu_icon"
         />
+    <item
+        android:id="@+id/notification_icon"
+        android:title="Notifications"
+        app:showAsAction="always"
+        android:icon="@drawable/notifications_none_24"/>
 
 </menu>

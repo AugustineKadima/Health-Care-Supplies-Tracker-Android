@@ -21,7 +21,7 @@
             android:text="Product name"
             android:textColor="@color/healthCareDarkBlue"
             android:textStyle="bold"
-            android:textSize="16dp"
+            android:textSize="18dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginBottom="4dp"/>
@@ -30,25 +30,25 @@
             android:id="@+id/donor_item_hospital"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@id/donor_item_name"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="4dp"
             android:text="Hospital Name"
             android:textColor="@color/healthCareGrey"
-            android:textStyle="bold"
-            android:layout_below="@id/donor_item_name"
             android:textSize="16dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginBottom="4dp"/>
+           />
 
         <TextView
             android:id="@+id/donor_item_quantity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@id/donor_item_hospital"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="16dp"
             android:text="Quantity:"
             android:textColor="@color/healthCareGrey"
-            android:textStyle="bold"
-            android:layout_below="@id/donor_item_hospital"
             android:textSize="16dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginBottom="16dp"/>
+          />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn_donor_deliver"
@@ -65,7 +65,7 @@
             android:layout_marginEnd="16dp"
             android:minHeight="48dp"
             android:layout_marginBottom="16dp"
-
+            android:textAllCaps="false"
             />
 </RelativeLayout>
 </RelativeLayout>
