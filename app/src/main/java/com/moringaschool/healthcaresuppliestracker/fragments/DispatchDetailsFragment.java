@@ -11,8 +11,12 @@ import android.widget.TextView;
 
 import com.moringaschool.healthcaresuppliestracker.R;
 
-
-public class ItemStockFragment extends Fragment {
+/**
+ * A simple {@link Fragment} subclass.
+ * Use the {@link DispatchDetailsFragment#newInstance} factory method to
+ * create an instance of this fragment.
+ */
+public class DispatchDetailsFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -23,13 +27,21 @@ public class ItemStockFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public ItemStockFragment() {
+    public DispatchDetailsFragment() {
         // Required empty public constructor
     }
 
-
-    public static ItemStockFragment newInstance(String param1, String param2) {
-        ItemStockFragment fragment = new ItemStockFragment();
+    /**
+     * Use this factory method to create a new instance of
+     * this fragment using the provided parameters.
+     *
+     * @param param1 Parameter 1.
+     * @param param2 Parameter 2.
+     * @return A new instance of fragment DispatchDetailsFragment.
+     */
+    // TODO: Rename and change types and number of parameters
+    public static DispatchDetailsFragment newInstance(String param1, String param2) {
+        DispatchDetailsFragment fragment = new DispatchDetailsFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -50,17 +62,14 @@ public class ItemStockFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_item_stock, container, false);
-
+        View view = inflater.inflate(R.layout.fragment_dispatch_details, container, false);
         TextView productName, donor, quantity, orderDate, dispatchDate, status;
-
-        productName = view.findViewById(R.id.single_item_product_name);
-        donor = view.findViewById(R.id.single_item_donor_name);
-        quantity = view.findViewById(R.id.single_item_quantity);
-        orderDate = view.findViewById(R.id.single_item_order_date);
-        dispatchDate = view.findViewById(R.id.single_item_dispatch_date);
-        status = view.findViewById(R.id.single_item_status);
-
+        productName = view.findViewById(R.id.dispatch_details_product_name);
+        donor = view.findViewById(R.id.dispatch_details_donor_name);
+        quantity = view.findViewById(R.id.dispatch_details_quantity);
+        orderDate = view.findViewById(R.id.dispatch_details_order_date);
+        dispatchDate = view.findViewById(R.id.dispatch_details_dispatch_date);
+        status = view.findViewById(R.id.dispatch_details_status);
 
         return view;
     }

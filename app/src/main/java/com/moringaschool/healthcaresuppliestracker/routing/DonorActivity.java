@@ -74,6 +74,7 @@ public class DonorActivity extends AppCompatActivity {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         AllRequestsFragment allRequestsFragment = new AllRequestsFragment();
         fragmentTransaction.replace(R.id.fragment_container_donor_pages, allRequestsFragment);
+        fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
     }
 
@@ -82,6 +83,7 @@ public class DonorActivity extends AppCompatActivity {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         DispatchesFragment dispatchesFragment = new DispatchesFragment();
         fragmentTransaction.replace(R.id.fragment_container_donor_pages, dispatchesFragment);
+        fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
     }
 }

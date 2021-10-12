@@ -4,6 +4,8 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -18,12 +20,13 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.moringaschool.healthcaresuppliestracker.R;
 import com.moringaschool.healthcaresuppliestracker.adapters.OrdersAdapter;
+import com.moringaschool.healthcaresuppliestracker.interfaces.ItemClickListener;
 import com.moringaschool.healthcaresuppliestracker.modules.Order;
 
 import java.util.ArrayList;
 
 
-public class InStockFragment extends Fragment {
+public class InStockFragment extends Fragment implements ItemClickListener {
 
 
     private OrdersAdapter ordersAdapter;
@@ -70,7 +73,7 @@ public class InStockFragment extends Fragment {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize(true);
 
-        ordersAdapter = new OrdersAdapter(orderList, view.getContext());
+        ordersAdapter = new OrdersAdapter(orderList, view.getContext(), this);
         recyclerView.setAdapter(ordersAdapter);
 
 
@@ -89,5 +92,17 @@ public class InStockFragment extends Fragment {
 
             }
         });
+    }
+
+    @Override
+    public void onItemClick(Order order) {
+        Fragment fragment = InStockFragment.newInstance(order.getItemName(), order.getDonorEmail());
+
+
+        FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+        ItemStockFragment detailsFragment = new ItemStockFragment();
+        fragmentTransaction.replace(R.id.fragment_container_pages, detailsFragment);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
     }
 }

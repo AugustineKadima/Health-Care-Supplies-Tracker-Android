@@ -120,6 +120,7 @@ public class ParentActivity extends AppCompatActivity {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         NewOrderFragment newOrderFragment = new NewOrderFragment();
         fragmentTransaction.replace(R.id.fragment_container_pages, newOrderFragment);
+        fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
     }
     private void trackOrder() {
@@ -127,6 +128,7 @@ public class ParentActivity extends AppCompatActivity {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         TrackFragment trackFragment = new TrackFragment();
         fragmentTransaction.replace(R.id.fragment_container_pages, trackFragment);
+        fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
 
     }
@@ -135,6 +137,7 @@ public class ParentActivity extends AppCompatActivity {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         InStockFragment inStockFragment = new InStockFragment();
         fragmentTransaction.replace(R.id.fragment_container_pages, inStockFragment);
+        fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
     }
 

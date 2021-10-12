@@ -7,15 +7,16 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.moringaschool.healthcaresuppliestracker.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link ItemDispatchFragment#newInstance} factory method to
+ * Use the {@link TrackDetailsFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class ItemDispatchFragment extends Fragment {
+public class TrackDetailsFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -26,7 +27,7 @@ public class ItemDispatchFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public ItemDispatchFragment() {
+    public TrackDetailsFragment() {
         // Required empty public constructor
     }
 
@@ -36,11 +37,11 @@ public class ItemDispatchFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment ItemDispatchFragment.
+     * @return A new instance of fragment TrackDetailsFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static ItemDispatchFragment newInstance(String param1, String param2) {
-        ItemDispatchFragment fragment = new ItemDispatchFragment();
+    public static TrackDetailsFragment newInstance(String param1, String param2) {
+        TrackDetailsFragment fragment = new TrackDetailsFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -61,6 +62,16 @@ public class ItemDispatchFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_item_dispatch, container, false);
+        View view = inflater.inflate(R.layout.fragment_track_details, container, false);
+
+        TextView productName, donor, quantity, orderDate, dispatchDate, status;
+
+        orderDate = view.findViewById(R.id.track_details_order_date);
+        productName = view.findViewById(R.id.track_details_product_name);
+        donor = view.findViewById(R.id.track_details_donor_name);
+        quantity = view.findViewById(R.id.track_details_quantity);
+        dispatchDate = view.findViewById(R.id.track_details_dispatch_date);
+        status = view.findViewById(R.id.track_details_status);
+        return view;
     }
 }

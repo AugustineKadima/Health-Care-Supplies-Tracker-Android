@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.moringaschool.healthcaresuppliestracker.R;
+import com.moringaschool.healthcaresuppliestracker.interfaces.ItemClickListener;
 import com.moringaschool.healthcaresuppliestracker.modules.Order;
 
 import java.util.ArrayList;
@@ -21,11 +22,13 @@ public class OrdersAdapter extends RecyclerView.Adapter<OrdersAdapter.ViewHolder
     private List<Order> orders;
     private List<Order> ordersAll;
     Context mContext;
+    ItemClickListener clickListener;
 
-    public OrdersAdapter(List<Order> orders, Context mContext) {
+    public OrdersAdapter(List<Order> orders, Context mContext,  ItemClickListener clickListener) {
         this.orders = orders;
         this.mContext = mContext;
         this.ordersAll = new ArrayList<>(orders);
+        this.clickListener = clickListener;
     }
 
     @NonNull
@@ -44,7 +47,7 @@ public class OrdersAdapter extends RecyclerView.Adapter<OrdersAdapter.ViewHolder
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                clickListener.onItemClick(order);
             }
         });
     }

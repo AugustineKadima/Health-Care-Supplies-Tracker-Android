@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -19,12 +20,13 @@ import com.google.firebase.database.ValueEventListener;
 import com.moringaschool.healthcaresuppliestracker.R;
 import com.moringaschool.healthcaresuppliestracker.adapters.OrderRequestsAdapter;
 import com.moringaschool.healthcaresuppliestracker.adapters.OrdersAdapter;
+import com.moringaschool.healthcaresuppliestracker.interfaces.ItemClickListener;
 import com.moringaschool.healthcaresuppliestracker.modules.Order;
 
 import java.util.ArrayList;
 
 
-public class AllRequestsFragment extends Fragment {
+public class AllRequestsFragment extends Fragment implements ItemClickListener {
 
     private OrderRequestsAdapter ordersAdapter;
     private ArrayList<Order> orderList = new ArrayList<>();
@@ -71,7 +73,7 @@ public class AllRequestsFragment extends Fragment {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize(true);
 
-        ordersAdapter = new OrderRequestsAdapter(orderList, view.getContext());
+        ordersAdapter = new OrderRequestsAdapter(orderList, view.getContext(), this);
         recyclerView.setAdapter(ordersAdapter);
 
 
@@ -90,5 +92,17 @@ public class AllRequestsFragment extends Fragment {
 
             }
         });
+    }
+
+    @Override
+    public void onItemClick(Order order) {
+        Fragment fragment = AllRequestsFragment.newInstance(order.getItemName(), order.getDonorEmail());
+
+
+        FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+        ItemRequestFragment detailsFragment = new ItemRequestFragment()      ;
+        fragmentTransaction.replace(R.id.fragment_container_donor_pages, detailsFragment);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
     }
 }
