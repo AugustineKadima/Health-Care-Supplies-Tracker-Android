@@ -25,6 +25,7 @@ import com.moringaschool.healthcaresuppliestracker.R;
 import com.moringaschool.healthcaresuppliestracker.fragments.InStockFragment;
 import com.moringaschool.healthcaresuppliestracker.fragments.NewOrderFragment;
 import com.moringaschool.healthcaresuppliestracker.fragments.TrackFragment;
+import com.moringaschool.healthcaresuppliestracker.view_model.DeliveredViewModel;
 import com.moringaschool.healthcaresuppliestracker.view_model.OrderViewModel;
 
 import java.util.HashMap;
@@ -32,8 +33,12 @@ import java.util.HashMap;
 public class ParentActivity extends AppCompatActivity {
     TextView new_order, track, in_stock;
     OrderViewModel orderViewModel;
+    DeliveredViewModel deliveredViewModel;
     FirebaseDatabase database = FirebaseDatabase.getInstance();
+    FirebaseDatabase database2 = FirebaseDatabase.getInstance();
+
     DatabaseReference myRef = database.getReference("orders");
+    DatabaseReference deliveredRef = database2.getReference("delivered_items");
 
 
     @Override
@@ -108,6 +113,19 @@ public class ParentActivity extends AppCompatActivity {
                         Toast.makeText(ParentActivity.this, "Order was successful", Toast.LENGTH_LONG).show();
                     }else{
                         Toast.makeText(ParentActivity.this, "Failed! Please try again", Toast.LENGTH_LONG).show();
+                    }
+                }
+            });
+        });
+
+//        View model 2
+        deliveredViewModel = new ViewModelProvider(this).get(DeliveredViewModel.class);
+        deliveredViewModel.getDelivered().observe(this, delivered ->{
+            deliveredRef.push().setValue(delivered).addOnCompleteListener(new OnCompleteListener<Void>() {
+                @Override
+                public void onComplete(@NonNull Task<Void> task) {
+                    if(task.isSuccessful()){
+                        Toast.makeText(ParentActivity.this, "Delivered successfully!", Toast.LENGTH_SHORT).show();
                     }
                 }
             });

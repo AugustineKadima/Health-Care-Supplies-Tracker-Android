@@ -22,7 +22,7 @@ import java.util.HashMap;
 
 public class DonorSignUp extends AppCompatActivity {
 
-    TextView hospital_sign_up_link, sign_up_instead;
+    TextView hospital_sign_up_link, login_instead;
     Button create_account;
     EditText donor_name, donor_email, donor_password, donor_location, donor_phone_number;
 
@@ -43,7 +43,7 @@ public class DonorSignUp extends AppCompatActivity {
         donor_location = (EditText) findViewById(R.id.donor_location);
         donor_phone_number = (EditText) findViewById(R.id.donor_phone_number);
         create_account = (Button) findViewById(R.id.btn_donor_create_account);
-
+        login_instead = (TextView) findViewById(R.id.login_instead);
 
         hospital_sign_up_link.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,6 +52,12 @@ public class DonorSignUp extends AppCompatActivity {
             }
         });
 
+        login_instead.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(DonorSignUp.this, DonorLoginActivity.class));
+            }
+        });
 
         create_account.setOnClickListener(new View.OnClickListener() {
             @Override

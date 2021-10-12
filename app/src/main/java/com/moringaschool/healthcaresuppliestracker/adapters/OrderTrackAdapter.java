@@ -4,7 +4,9 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -12,6 +14,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.moringaschool.healthcaresuppliestracker.R;
 import com.moringaschool.healthcaresuppliestracker.interfaces.ItemClickListener;
 import com.moringaschool.healthcaresuppliestracker.modules.Order;
+import com.moringaschool.healthcaresuppliestracker.view_model.DeliveredViewModel;
+import com.moringaschool.healthcaresuppliestracker.view_model.OrderViewModel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,6 +26,7 @@ public class OrderTrackAdapter extends RecyclerView.Adapter<OrderTrackAdapter.Vi
     private List<Order> orders;
     private List<Order> ordersAll;
     ItemClickListener clickListener;
+    DeliveredViewModel deliveredViewModel;
 
     public OrderTrackAdapter(List<Order> orders, Context mContext, ItemClickListener clickListener) {
         this.orders = orders;
@@ -48,6 +53,13 @@ public class OrderTrackAdapter extends RecyclerView.Adapter<OrderTrackAdapter.Vi
                 clickListener.onItemClick(order);
             }
         });
+        holder.btn_confirm_delivery.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(mContext, "Button clicked!", Toast.LENGTH_SHORT).show();
+                deliveredViewModel.setData("Surgical Knife", "23", "Steel", "Sir Kadima");
+            }
+        });
     }
 
     @Override
@@ -57,11 +69,13 @@ public class OrderTrackAdapter extends RecyclerView.Adapter<OrderTrackAdapter.Vi
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         private TextView item_name, item_quantity;
+        Button btn_confirm_delivery;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
             item_name = itemView.findViewById(R.id.track_item_name);
             item_quantity = itemView.findViewById(R.id.track_item_quantity);
+            btn_confirm_delivery = itemView.findViewById(R.id.btn_confirm_delivery);
         }
     }
 }

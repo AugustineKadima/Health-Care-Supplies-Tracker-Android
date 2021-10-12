@@ -125,18 +125,19 @@
             android:textSize="18sp"
             android:layout_below="@id/donor_password"
             android:elevation="4dp"/>
+
         <TextView
             android:id="@+id/login_instead"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Login instead?"
-            android:textSize="18dp"
-            android:textColor="@color/healthCareDarkBlue"
-            android:textStyle="bold"
             android:layout_below="@id/btn_donor_create_account"
-            android:gravity="center"
             android:layout_centerHorizontal="true"
-            android:layout_marginBottom="16dp"/>
+            android:layout_marginBottom="16dp"
+            android:gravity="center"
+            android:text="Login instead?"
+            android:textColor="@color/healthCareDarkBlue"
+            android:textSize="18dp"
+            android:textStyle="bold" />
     </RelativeLayout>
 
 </ScrollView>

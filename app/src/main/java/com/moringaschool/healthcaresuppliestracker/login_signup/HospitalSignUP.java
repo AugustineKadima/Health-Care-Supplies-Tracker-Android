@@ -40,9 +40,15 @@ public class HospitalSignUP extends AppCompatActivity {
         hospital_password = (EditText) findViewById(R.id.hospital_password);
         hospital_location = (EditText) findViewById(R.id.hospital_location);
         hospital_phone_number = (EditText) findViewById(R.id.hospital_phone_number);
-        login_instead = (TextView) findViewById(R.id.login_instead);
+        login_instead = (TextView) findViewById(R.id.login_instead_hospital);
         btn_create_account = (Button) findViewById(R.id.btn_hospital_create_account);
 
+        login_instead.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(HospitalSignUP.this, Login.class));
+            }
+        });
 
         donor_sign_up_link.setOnClickListener(new View.OnClickListener() {
             @Override

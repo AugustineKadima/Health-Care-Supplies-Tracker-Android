@@ -78,17 +78,19 @@
         android:minHeight="48dp"
         android:text="Login"
         android:textSize="18sp" />
+
     <TextView
+        android:id="@+id/create_account_instead_donor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="SignUp instead?"
-        android:textSize="18dp"
-        android:textColor="@color/healthCareDarkBlue"
-        android:textStyle="bold"
         android:layout_below="@id/btn_login_donor"
-        android:gravity="center"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="16dp"/>
+        android:layout_marginBottom="16dp"
+        android:gravity="center"
+        android:text="SignUp instead?"
+        android:textColor="@color/healthCareDarkBlue"
+        android:textSize="18dp"
+        android:textStyle="bold" />
 
 
 </RelativeLayout>

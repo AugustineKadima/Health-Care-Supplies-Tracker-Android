@@ -9,6 +9,7 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -21,6 +22,7 @@ import com.moringaschool.healthcaresuppliestracker.routing.ParentActivity;
 
 public class Login extends AppCompatActivity {
 
+    TextView create_account_instead;
     EditText login_email, login_password;
     Button btn_login;
 
@@ -32,11 +34,19 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        create_account_instead = (TextView) findViewById(R.id.create_account_instead_hospital);
         login_email = (EditText) findViewById(R.id.login_email);
         login_password = (EditText) findViewById(R.id.login_password);
         btn_login = (Button) findViewById(R.id.btn_login);
 
         mAuth = FirebaseAuth.getInstance();
+
+        create_account_instead.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(Login.this, HospitalSignUP.class));
+            }
+        });
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
