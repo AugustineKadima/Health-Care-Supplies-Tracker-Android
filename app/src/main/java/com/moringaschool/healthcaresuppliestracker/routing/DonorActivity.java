@@ -51,6 +51,7 @@ public class DonorActivity extends AppCompatActivity {
         _requests = (TextView) findViewById(R.id.all_requests_header);
         _dispatches = (TextView) findViewById(R.id.dispatches_header);
 
+        allRequests();
 
         _requests.setOnClickListener(new View.OnClickListener() {
             @Override
