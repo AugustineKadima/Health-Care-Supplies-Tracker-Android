@@ -3,6 +3,8 @@ package com.moringaschool.healthcaresuppliestracker.fragments;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -64,7 +66,7 @@ public class TrackDetailsFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_track_details, container, false);
 
-        TextView productName, donor, quantity, orderDate, dispatchDate, status;
+        TextView productName, donor, quantity, orderDate, dispatchDate, status, track_details_map;
 
         orderDate = view.findViewById(R.id.track_details_order_date);
         productName = view.findViewById(R.id.track_details_product_name);
@@ -72,6 +74,20 @@ public class TrackDetailsFragment extends Fragment {
         quantity = view.findViewById(R.id.track_details_quantity);
         dispatchDate = view.findViewById(R.id.track_details_dispatch_date);
         status = view.findViewById(R.id.track_details_status);
+        track_details_map = view.findViewById(R.id.track_details_map);
+
+        track_details_map.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                MapsFragment mapsFragment = new MapsFragment();
+                fragmentTransaction.replace(R.id.fragment_container_pages, mapsFragment);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+            }
+        });
+
         return view;
     }
 }

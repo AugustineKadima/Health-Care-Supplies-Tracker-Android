@@ -37,6 +37,7 @@
         <entry key="app/src/main/res/layout/fragment_item_dispatch.xml" value="0.18" />
         <entry key="app/src/main/res/layout/fragment_item_request.xml" value="0.22" />
         <entry key="app/src/main/res/layout/fragment_item_stock.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/fragment_maps.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_new_order.xml" value="0.22" />
         <entry key="app/src/main/res/layout/fragment_track.xml" value="0.21" />
         <entry key="app/src/main/res/layout/fragment_track_details.xml" value="0.22" />

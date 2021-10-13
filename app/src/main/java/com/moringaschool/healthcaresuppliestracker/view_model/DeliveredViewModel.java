@@ -8,7 +8,7 @@ import java.util.HashMap;
 
 public class DeliveredViewModel extends ViewModel {
 
-    private final MutableLiveData<HashMap<String, String>> delivered = new MutableLiveData<>();
+    private  MutableLiveData<HashMap<String, String>> delivered = new MutableLiveData<>();
     private HashMap<String,String> deliveredItems = new HashMap<>();
 
 
@@ -18,6 +18,7 @@ public class DeliveredViewModel extends ViewModel {
         deliveredItems.put("itemDescription",itemDescription);
         deliveredItems.put("donorEmail",donorEmail);
         delivered.setValue(deliveredItems);
+
     }
 
     public LiveData<HashMap<String,String>> getDelivered(){

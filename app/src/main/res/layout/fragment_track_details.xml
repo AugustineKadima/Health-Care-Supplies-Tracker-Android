@@ -78,13 +78,12 @@
            android:id="@+id/track_details_map"
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"
+           android:layout_alignParentBottom="true"
+           android:minHeight="48dp"
            android:text="Map"
            android:textColor="@color/healthCareGrey"
            android:textSize="18sp"
-           android:textStyle="bold"
-           android:minHeight="48dp"
-           android:layout_alignParentBottom="true"
-           />
+           android:textStyle="bold" />
 
    </RelativeLayout>
 </RelativeLayout>
