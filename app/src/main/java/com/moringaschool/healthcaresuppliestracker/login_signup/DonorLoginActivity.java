@@ -12,7 +12,7 @@ import com.moringaschool.healthcaresuppliestracker.R;
 import com.moringaschool.healthcaresuppliestracker.routing.DonorActivity;
 
 public class DonorLoginActivity extends AppCompatActivity {
-    TextView create_account_instead;
+    TextView create_account_instead, donor_login3_title;
     Button login_donor;
 
     @Override
@@ -21,6 +21,14 @@ public class DonorLoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_donor_login);
 
         create_account_instead = (TextView) findViewById(R.id.create_account_instead_donor);
+        donor_login3_title = (TextView) findViewById(R.id.donor_login3_title);
+
+        donor_login3_title.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(DonorLoginActivity.this, Login.class));
+            }
+        });
         login_donor = (Button) findViewById(R.id.btn_login_donor);
         login_donor.setOnClickListener(new View.OnClickListener() {
             @Override

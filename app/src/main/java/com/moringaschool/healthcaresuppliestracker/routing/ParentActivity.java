@@ -8,6 +8,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -25,6 +26,7 @@ import com.moringaschool.healthcaresuppliestracker.R;
 import com.moringaschool.healthcaresuppliestracker.fragments.InStockFragment;
 import com.moringaschool.healthcaresuppliestracker.fragments.NewOrderFragment;
 import com.moringaschool.healthcaresuppliestracker.fragments.TrackFragment;
+import com.moringaschool.healthcaresuppliestracker.login_signup.Login;
 import com.moringaschool.healthcaresuppliestracker.view_model.DeliveredViewModel;
 import com.moringaschool.healthcaresuppliestracker.view_model.OrderViewModel;
 
@@ -44,7 +46,10 @@ public class ParentActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main_menu, menu);
+
         MenuItem item = menu.findItem(R.id.search_icon);
+        MenuItem logout = menu.findItem(R.id.menu_logout);
+
         SearchView searchView = (SearchView) item.getActionView();
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
@@ -58,7 +63,19 @@ public class ParentActivity extends AppCompatActivity {
             }
         });
 
+        logout.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem menuItem) {
+               startActivity(new Intent(ParentActivity.this, Login.class));
+               return true;
+            }
+        });
+
+
         return super.onCreateOptionsMenu(menu);
+
+
+
     }
 
     @Override

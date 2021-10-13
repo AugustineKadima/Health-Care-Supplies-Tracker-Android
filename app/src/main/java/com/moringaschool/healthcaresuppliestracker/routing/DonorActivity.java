@@ -6,6 +6,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -16,6 +17,8 @@ import com.moringaschool.healthcaresuppliestracker.R;
 import com.moringaschool.healthcaresuppliestracker.fragments.AllRequestsFragment;
 import com.moringaschool.healthcaresuppliestracker.fragments.DispatchesFragment;
 import com.moringaschool.healthcaresuppliestracker.fragments.InStockFragment;
+import com.moringaschool.healthcaresuppliestracker.login_signup.DonorLoginActivity;
+import com.moringaschool.healthcaresuppliestracker.login_signup.Login;
 
 public class DonorActivity extends AppCompatActivity {
     TextView _requests, _dispatches;
@@ -24,7 +27,10 @@ public class DonorActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main_menu, menu);
+
         MenuItem item = menu.findItem(R.id.search_icon);
+        MenuItem logout = menu.findItem(R.id.menu_logout);
+
         SearchView searchView = (SearchView) item.getActionView();
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
@@ -37,6 +43,15 @@ public class DonorActivity extends AppCompatActivity {
                 return false;
             }
         });
+
+        logout.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem menuItem) {
+                startActivity(new Intent(DonorActivity.this, DonorLoginActivity.class));
+                return true;
+            }
+        });
+
 
         return super.onCreateOptionsMenu(menu);
     }

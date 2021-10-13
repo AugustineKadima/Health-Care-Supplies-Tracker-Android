@@ -11,11 +11,14 @@
         android:id="@+id/login_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Login"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="Hospital Login"
         android:textColor="@color/healthCareDarkBlue"
         android:textSize="24dp"
-        android:textStyle="bold"
-        android:layout_margin="16dp"/>
+        android:textStyle="bold" />
 
     <EditText
         android:id="@+id/login_email"
@@ -88,6 +91,20 @@
         android:textColor="@color/healthCareDarkBlue"
         android:textSize="18dp"
         android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/login_title4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="Donor"
+        android:textColor="@color/healthCareGrey"
+        android:textSize="24dp"
+        android:textStyle="bold"
+        android:layout_alignParentRight="true"/>
 
 
 </RelativeLayout>

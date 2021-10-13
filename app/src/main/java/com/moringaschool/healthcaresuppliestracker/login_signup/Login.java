@@ -22,7 +22,7 @@ import com.moringaschool.healthcaresuppliestracker.routing.ParentActivity;
 
 public class Login extends AppCompatActivity {
 
-    TextView create_account_instead;
+    TextView create_account_instead, login_title4;
     EditText login_email, login_password;
     Button btn_login;
 
@@ -38,6 +38,14 @@ public class Login extends AppCompatActivity {
         login_email = (EditText) findViewById(R.id.login_email);
         login_password = (EditText) findViewById(R.id.login_password);
         btn_login = (Button) findViewById(R.id.btn_login);
+        login_title4 = (TextView) findViewById(R.id.login_title4);
+
+        login_title4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(Login.this, DonorLoginActivity.class));
+            }
+        });
 
         mAuth = FirebaseAuth.getInstance();
 

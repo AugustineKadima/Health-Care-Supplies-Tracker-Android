@@ -11,11 +11,14 @@
         android:id="@+id/donor_login2_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Login"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="Donor Login"
         android:textColor="@color/healthCareDarkBlue"
         android:textSize="24dp"
-        android:textStyle="bold"
-        android:layout_margin="16dp"/>
+        android:textStyle="bold" />
 
     <EditText
         android:id="@+id/donor_login2_email"
@@ -77,7 +80,8 @@
         android:elevation="4dp"
         android:minHeight="48dp"
         android:text="Login"
-        android:textSize="18sp" />
+        android:textSize="18sp"
+        android:textAllCaps="false"/>
 
     <TextView
         android:id="@+id/create_account_instead_donor"
@@ -90,6 +94,20 @@
         android:text="SignUp instead?"
         android:textColor="@color/healthCareDarkBlue"
         android:textSize="18dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/donor_login3_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="Hospital"
+        android:textColor="@color/healthCareGrey"
+        android:textSize="24dp"
         android:textStyle="bold" />
 
 
