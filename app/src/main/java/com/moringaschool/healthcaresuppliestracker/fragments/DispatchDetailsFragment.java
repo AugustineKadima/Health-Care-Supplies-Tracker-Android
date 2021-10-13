@@ -3,6 +3,7 @@ package com.moringaschool.healthcaresuppliestracker.fragments;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -63,13 +64,27 @@ public class DispatchDetailsFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_dispatch_details, container, false);
-        TextView productName, donor, quantity, orderDate, dispatchDate, status;
+        TextView productName, donor, quantity, orderDate, dispatchDate, status, dispatch_details_map;
         productName = view.findViewById(R.id.dispatch_details_product_name);
         donor = view.findViewById(R.id.dispatch_details_donor_name);
         quantity = view.findViewById(R.id.dispatch_details_quantity);
         orderDate = view.findViewById(R.id.dispatch_details_order_date);
         dispatchDate = view.findViewById(R.id.dispatch_details_dispatch_date);
         status = view.findViewById(R.id.dispatch_details_status);
+        dispatch_details_map = view.findViewById(R.id.dispatch_details_map);
+        dispatch_details_map.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                DispatchDetailsFragment detailsFragment = new DispatchDetailsFragment();
+
+                FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+                MapsFragment mapsFragment= new MapsFragment();
+                fragmentTransaction.replace(R.id.fragment_container_donor_pages, mapsFragment);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+            }
+        });
 
         return view;
     }
