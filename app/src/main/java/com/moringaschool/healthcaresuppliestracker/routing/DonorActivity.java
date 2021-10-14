@@ -7,6 +7,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -71,6 +72,8 @@ public class DonorActivity extends AppCompatActivity {
         _requests.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                _dispatches.setTextColor(Color.parseColor("#737272"));
+                _requests.setTextColor(Color.parseColor("#0905CE"));
                 allRequests();
             }
         });
@@ -78,6 +81,8 @@ public class DonorActivity extends AppCompatActivity {
         _dispatches.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                _dispatches.setTextColor(Color.parseColor("#0905CE"));
+                _requests.setTextColor(Color.parseColor("#737272"));
                 dispatches();
             }
         });

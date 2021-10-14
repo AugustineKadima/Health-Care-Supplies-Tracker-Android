@@ -12,6 +12,9 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.moringaschool.healthcaresuppliestracker.R;
+import com.moringaschool.healthcaresuppliestracker.modules.Order;
+
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -20,33 +23,22 @@ import com.moringaschool.healthcaresuppliestracker.R;
  */
 public class TrackDetailsFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+//
+//    private static  String item_name = "name1";
+//    private static  String item_quantity = "name2";
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
+    private String itemName, itemQuantity;
     public TrackDetailsFragment() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment TrackDetailsFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static TrackDetailsFragment newInstance(String param1, String param2) {
+
+    public static TrackDetailsFragment newInstance(Order order) {
         TrackDetailsFragment fragment = new TrackDetailsFragment();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
+        args.putString("item_name", order.getItemName());
+        args.putString("item_quantity", order.getItemQuantity());
+
         fragment.setArguments(args);
         return fragment;
     }
@@ -55,8 +47,8 @@ public class TrackDetailsFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+            itemName = getArguments().getString("item_name");
+            itemQuantity = getArguments().getString("item_quantity");
         }
     }
 
@@ -75,6 +67,9 @@ public class TrackDetailsFragment extends Fragment {
         dispatchDate = view.findViewById(R.id.track_details_dispatch_date);
         status = view.findViewById(R.id.track_details_status);
         track_details_map = view.findViewById(R.id.track_details_map);
+
+        productName.setText("Product name: "+itemName);
+        quantity.setText("Quantity: "+itemQuantity);
 
         track_details_map.setOnClickListener(new View.OnClickListener() {
             @Override

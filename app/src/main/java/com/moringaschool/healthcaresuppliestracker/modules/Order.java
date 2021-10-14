@@ -1,5 +1,8 @@
 package com.moringaschool.healthcaresuppliestracker.modules;
 
+import org.parceler.Parcel;
+
+@Parcel
 public class Order {
 
     private String itemName;

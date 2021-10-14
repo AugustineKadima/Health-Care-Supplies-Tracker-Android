@@ -9,6 +9,7 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -94,14 +95,22 @@ public class ParentActivity extends AppCompatActivity {
         new_order.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                new_order.setTextColor(Color.parseColor("#0905CE"));
+                track.setTextColor(Color.parseColor("#737272"));
+                in_stock.setTextColor(Color.parseColor("#737272"));
+
                 newOrder();
             }
         });
 
 //      Navigate to track orders fragment
         track.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View view) {
+                new_order.setTextColor(Color.parseColor("#737272"));
+                track.setTextColor(Color.parseColor("#0905CE"));
+                in_stock.setTextColor(Color.parseColor("#737272"));
                 trackOrder();
             }
 
@@ -112,6 +121,10 @@ public class ParentActivity extends AppCompatActivity {
         in_stock.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                new_order.setTextColor(Color.parseColor("#737272"));
+                track.setTextColor(Color.parseColor("#737272"));
+                in_stock.setTextColor(Color.parseColor("#0905CE"));
                 inStock();
             }
 
