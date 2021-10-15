@@ -16,41 +16,37 @@ import com.moringaschool.healthcaresuppliestracker.modules.Order;
 
 import java.util.List;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link TrackDetailsFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+
 public class TrackDetailsFragment extends Fragment {
 
 //
 //    private static  String item_name = "name1";
 //    private static  String item_quantity = "name2";
 
-    private String itemName, itemQuantity;
+//    private String itemName, itemQuantity;
     public TrackDetailsFragment() {
         // Required empty public constructor
     }
 
 
-    public static TrackDetailsFragment newInstance(Order order) {
-        TrackDetailsFragment fragment = new TrackDetailsFragment();
-        Bundle args = new Bundle();
-        args.putString("item_name", order.getItemName());
-        args.putString("item_quantity", order.getItemQuantity());
-
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            itemName = getArguments().getString("item_name");
-            itemQuantity = getArguments().getString("item_quantity");
-        }
-    }
+//    public static TrackDetailsFragment newInstance(Order order) {
+//        TrackDetailsFragment fragment = new TrackDetailsFragment();
+//        Bundle args = new Bundle();
+//        args.putString("item_name", order.getItemName());
+//        args.putString("item_quantity", order.getItemQuantity());
+//
+//        fragment.setArguments(args);
+//        return fragment;
+//    }
+//
+//    @Override
+//    public void onCreate(Bundle savedInstanceState) {
+//        super.onCreate(savedInstanceState);
+//        if (getArguments() != null) {
+////            itemName = getArguments().getString("item_name");
+////            itemQuantity = getArguments().getString("item_quantity");
+//        }
+//    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -68,8 +64,12 @@ public class TrackDetailsFragment extends Fragment {
         status = view.findViewById(R.id.track_details_status);
         track_details_map = view.findViewById(R.id.track_details_map);
 
-        productName.setText("Product name: "+itemName);
-        quantity.setText("Quantity: "+itemQuantity);
+        Bundle bundle = getArguments();
+
+//        productName.setText("Product name: "+itemName);
+        quantity.setText("Quantity: "+ String.valueOf(bundle.getString("_quantity")));
+        productName.setText(String.valueOf(bundle.getString("_item_name")));
+        donor.setText("Donor email: "+ String.valueOf(bundle.getString("_donor_email")));
 
         track_details_map.setOnClickListener(new View.OnClickListener() {
             @Override

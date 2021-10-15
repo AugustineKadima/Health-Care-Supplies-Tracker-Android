@@ -6,13 +6,13 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/white"
-        android:elevation="4dp"
-        android:minHeight="60dp"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="2dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="2dp"
-        android:layout_marginTop="2dp">
+        android:background="@drawable/edt_txt_shape"
+        android:elevation="4dp"
+        android:minHeight="60dp">
 
         <TextView
             android:id="@+id/list_item_name"
@@ -30,13 +30,13 @@
             android:id="@+id/list_item_quantity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@id/list_item_name"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="16dp"
             android:text="Quantity:"
             android:textColor="@color/healthCareGrey"
-            android:textStyle="bold"
-            android:layout_below="@id/list_item_name"
             android:textSize="16dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginBottom="16dp"/>
+            android:textStyle="bold" />
 
         <ImageView
             android:id="@+id/delete_stock_item"

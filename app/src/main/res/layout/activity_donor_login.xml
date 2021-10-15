@@ -27,32 +27,32 @@
         android:layout_below="@id/donor_login2_title"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:background="@color/white"
+        android:background="@drawable/edt_txt_shape"
         android:elevation="4dp"
         android:hint="Email"
-        android:textColor="@color/black"
         android:inputType="textWebEmailAddress"
         android:minHeight="48dp"
         android:padding="8dp"
+        android:textColor="@color/black"
         android:textColorHint="@color/teal_200" />
 
     <EditText
         android:id="@+id/donor_login2_password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Password"
-        android:textColorHint="@color/teal_200"
-        android:minHeight="48dp"
+        android:layout_below="@id/donor_login2_email"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/edt_txt_shape"
         android:elevation="4dp"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:minHeight="48dp"
         android:padding="8dp"
         android:textColor="@color/black"
-        android:layout_below="@id/donor_login2_email"
-        android:inputType="textPassword"
-        android:background="@color/white"
-        android:layout_marginEnd="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="16dp"/>
+        android:textColorHint="@color/teal_200" />
 
     <TextView
         android:id="@+id/donor_forgot_password"
@@ -76,12 +76,12 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
-        android:background="@color/healthCareDarkBlue"
+        android:background="@drawable/btn_shape"
         android:elevation="4dp"
         android:minHeight="48dp"
         android:text="Login"
-        android:textSize="18sp"
-        android:textAllCaps="false"/>
+        android:textAllCaps="false"
+        android:textSize="18sp" />
 
     <TextView
         android:id="@+id/create_account_instead_donor"

@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.moringaschool.healthcaresuppliestracker.login_signup.HospitalSignUP;
+import com.moringaschool.healthcaresuppliestracker.login_signup.Login;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -22,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
         get_started.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this, HospitalSignUP.class));
+                startActivity(new Intent(MainActivity.this, Login.class));
             }
         });
     }

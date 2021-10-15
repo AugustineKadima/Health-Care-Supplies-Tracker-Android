@@ -23,7 +23,7 @@ public class OrderPagerAdapter extends FragmentPagerAdapter {
     @Override
     public Fragment getItem(int position) {
 
-        return TrackDetailsFragment.newInstance(orders.get(position));
+        return null;
     }
 
     @Override

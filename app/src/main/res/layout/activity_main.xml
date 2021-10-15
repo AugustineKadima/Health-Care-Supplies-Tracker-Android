@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:background="@color/healthCareDarkBlue"
+    android:background="@color/healthCareWhiteBlue"
     android:padding="0dp"
     android:layout_margin="0dp">
 
@@ -21,37 +21,37 @@
         android:minHeight="200dp"
         android:src="@drawable/hero_img"
         android:scaleType="fitXY"/>
-    <TextView
-        android:id="@+id/hero_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Healthcare Donations Tracker"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:textColor="@color/white"
-        android:layout_below="@id/hero_img"
-        android:layout_marginTop="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:gravity="center"
-        android:layout_centerHorizontal="true"
-        />
 
-    <TextView
-        android:id="@+id/hero_sub_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/hero_text"
-        android:layout_marginTop="8dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
-        android:text="Connecting hospitals to donors"
-        android:textColor="@color/white"
-        android:textSize="16sp"
-        android:textStyle="italic"
-        android:gravity="center"
-        android:layout_centerHorizontal="true"/>
+        <TextView
+            android:id="@+id/hero_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/hero_img"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:gravity="center"
+            android:text="Healthcare Donations Tracker"
+            android:textColor="@color/healthCareDarkBlue"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/hero_sub_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/hero_text"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:gravity="center"
+            android:text="Enabling donors to track donations"
+            android:textColor="@color/healthCareDarkBlue"
+            android:textSize="16sp"
+            android:textStyle="italic" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn_get_started"
@@ -62,13 +62,13 @@
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="16dp"
-            android:background="@color/white"
+            android:background="@drawable/btn_shape"
             android:elevation="16dp"
             android:minHeight="48dp"
             android:text="Get Started"
-            android:textColor="@color/healthCareDarkBlue"
-            android:textSize="24sp"
-            android:textAllCaps="false"/>
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
 
     </RelativeLayout>
 </ScrollView>

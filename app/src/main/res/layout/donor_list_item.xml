@@ -6,7 +6,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/white"
+        android:background="@drawable/edt_txt_shape"
         android:elevation="4dp"
         android:minHeight="60dp"
         android:layout_marginStart="16dp"
@@ -56,16 +56,15 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_marginStart="16dp"
-            android:text="Deliver"
-            android:background="@color/healthCareWhiteBlue"
-            android:textColor="@color/black"
-            android:elevation="8px"
-            android:padding="8px"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
-            android:minHeight="48dp"
             android:layout_marginBottom="16dp"
+            android:background="@color/healthCareWhiteBlue"
+            android:elevation="8px"
+            android:minHeight="48dp"
+            android:padding="8px"
+            android:text="Deliver"
             android:textAllCaps="false"
-            />
+            android:textColor="@color/black" />
 </RelativeLayout>
 </RelativeLayout>
