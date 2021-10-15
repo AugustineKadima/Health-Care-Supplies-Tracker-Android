@@ -26,8 +26,11 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/donor_login2_title"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="16dp"
         android:background="@drawable/edt_txt_shape"
+        android:drawableLeft="@drawable/email_24"
+        android:drawablePadding="8dp"
         android:elevation="4dp"
         android:hint="Email"
         android:inputType="textWebEmailAddress"
@@ -48,30 +51,31 @@
         android:background="@drawable/edt_txt_shape"
         android:elevation="4dp"
         android:hint="Password"
+        android:drawableLeft="@drawable/password_24"
+        android:drawablePadding="8dp"
         android:inputType="textPassword"
         android:minHeight="48dp"
         android:padding="8dp"
         android:textColor="@color/black"
         android:textColorHint="@color/teal_200" />
 
-    <TextView
-        android:id="@+id/donor_forgot_password"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Forgot Password?"
-        android:textColor="@color/black"
-        android:layout_below="@id/donor_login2_password"
-        android:textSize="16sp"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="16dp"
-        />
+<!--    <TextView-->
+<!--        android:id="@+id/donor_forgot_password"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_below="@id/donor_login2_password"-->
+<!--        android:layout_marginStart="16dp"-->
+<!--        android:layout_marginBottom="16dp"-->
+<!--        android:text="Forgot Password?"-->
+<!--        android:textColor="@color/black"-->
+<!--        android:textSize="16sp" />-->
 
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_login_donor"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/donor_forgot_password"
+        android:layout_below="@id/donor_login2_password"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
@@ -93,8 +97,8 @@
         android:gravity="center"
         android:text="SignUp instead?"
         android:textColor="@color/healthCareDarkBlue"
-        android:textSize="18dp"
-        android:textStyle="bold" />
+        android:textSize="16sp"
+         />
 
     <TextView
         android:id="@+id/donor_login3_title"

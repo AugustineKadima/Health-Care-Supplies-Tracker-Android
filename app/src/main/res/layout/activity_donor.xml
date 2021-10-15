@@ -17,11 +17,19 @@
         app:title="HCD-Tracker"
         app:titleMarginStart="16dp" />
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:elevation="8dp"
+        android:layout_marginBottom="8dp"
+        android:layout_below="@+id/toolbar"
+        android:id="@+id/nav_comp_2">
+
     <TextView
         android:id="@+id/all_requests_header"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/toolbar"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
@@ -39,7 +47,6 @@
         android:id="@+id/dispatches_header"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/toolbar"
         android:layout_alignParentRight="true"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
@@ -51,10 +58,11 @@
         android:textColor="@color/healthCareGrey"
         android:textSize="18sp"
         android:textStyle="bold" />
+    </RelativeLayout>
 
     <FrameLayout
         android:id="@+id/fragment_container_donor_pages"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/dispatches_header" />
+        android:layout_below="@id/nav_comp_2" />
 </RelativeLayout>
