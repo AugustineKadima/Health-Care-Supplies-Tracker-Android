@@ -1,6 +1,7 @@
 package com.moringaschool.healthcaresuppliestracker.adapters;
 
 import android.content.Context;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -22,7 +24,9 @@ import com.moringaschool.healthcaresuppliestracker.modules.Order;
 import com.moringaschool.healthcaresuppliestracker.view_model.DeliveredViewModel;
 import com.moringaschool.healthcaresuppliestracker.view_model.OrderViewModel;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class OrderTrackAdapter extends RecyclerView.Adapter<OrderTrackAdapter.ViewHolder> {
@@ -72,6 +76,24 @@ public class OrderTrackAdapter extends RecyclerView.Adapter<OrderTrackAdapter.Vi
             }
         });
 
+        holder.btn_confirm_delivery.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
+            @Override
+            public void onClick(View view) {
+                holder.btn_confirm_delivery.setText("Delivered");
+                LocalDate localDate = LocalDate.now();
+                String deliveryDate = localDate.toString();
+                HashMap<String, String> deliveredItems = new HashMap<>();
+                deliveredItems.put("itemName", order.getItemName());
+                deliveredItems.put("itemQuantity", order.getItemQuantity());
+                deliveredItems.put("donorEmail", order.getDonorEmail());
+                deliveredItems.put("itemDescription", order.getItemDescription());
+                deliveredItems.put("deliveryDate", deliveryDate);
+                deliveredItems.put("orderDate", order.getOrderDate());
+                deliveredRef.push().setValue(deliveredItems);
+            }
+        });
+
     }
 
     @Override
@@ -88,14 +110,14 @@ public class OrderTrackAdapter extends RecyclerView.Adapter<OrderTrackAdapter.Vi
             item_name = itemView.findViewById(R.id.track_item_name);
             item_quantity = itemView.findViewById(R.id.track_item_quantity);
             btn_confirm_delivery = itemView.findViewById(R.id.btn_confirm_delivery);
-            btn_confirm_delivery.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Toast.makeText(mContext, "Button clicked!", Toast.LENGTH_SHORT).show();
-//                    deliveredViewModel.setData("Surgical Knife", "23", "Steel", "Sir Kadima");
-                    deliveredRef.push().setValue("Boy");
-                }
-            });
+//            btn_confirm_delivery.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View view) {
+//                    HashMap<String, String> deliveredItems = new HashMap<>();
+//                    deliveredItems.put("itemName", )
+//                    deliveredRef.push().setValue("Boy");
+//                }
+//            });
         }
     }
 }

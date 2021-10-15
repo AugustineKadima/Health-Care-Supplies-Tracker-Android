@@ -19,7 +19,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.moringaschool.healthcaresuppliestracker.R;
 import com.moringaschool.healthcaresuppliestracker.adapters.DispatchesAdapter;
-import com.moringaschool.healthcaresuppliestracker.adapters.OrdersAdapter;
 import com.moringaschool.healthcaresuppliestracker.interfaces.ItemClickListener;
 import com.moringaschool.healthcaresuppliestracker.modules.Order;
 

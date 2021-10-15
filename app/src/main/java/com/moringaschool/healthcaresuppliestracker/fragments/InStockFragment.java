@@ -4,7 +4,6 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -19,8 +18,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.moringaschool.healthcaresuppliestracker.R;
-import com.moringaschool.healthcaresuppliestracker.adapters.OrdersAdapter;
+import com.moringaschool.healthcaresuppliestracker.adapters.DeliveredItemsAdapter;
 import com.moringaschool.healthcaresuppliestracker.interfaces.ItemClickListener;
+import com.moringaschool.healthcaresuppliestracker.modules.Delivered;
 import com.moringaschool.healthcaresuppliestracker.modules.Order;
 
 import java.util.ArrayList;
@@ -28,12 +28,11 @@ import java.util.ArrayList;
 
 public class InStockFragment extends Fragment implements ItemClickListener {
 
-
-    private OrdersAdapter ordersAdapter;
-    private ArrayList<Order> orderList = new ArrayList<>();
+    DeliveredItemsAdapter deliveredItemsAdapter;
+    ArrayList<Delivered> deliveredList = new ArrayList<>();
 
     private FirebaseDatabase db = FirebaseDatabase.getInstance();
-    private DatabaseReference root = db.getReference().child("orders");
+    private DatabaseReference root = db.getReference().child("delivered_items");
 
     public InStockFragment() {
         // Required empty public constructor
@@ -73,18 +72,17 @@ public class InStockFragment extends Fragment implements ItemClickListener {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize(true);
 
-        ordersAdapter = new OrdersAdapter(orderList, view.getContext(), this);
-        recyclerView.setAdapter(ordersAdapter);
-
+        deliveredItemsAdapter = new DeliveredItemsAdapter(deliveredList, view.getContext());
+        recyclerView.setAdapter(deliveredItemsAdapter);
 
         root.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for(DataSnapshot dataSnapshot: snapshot.getChildren()){
-                    Order order = dataSnapshot.getValue(Order.class);
-                    orderList.add(order);
+                    Delivered delivered = dataSnapshot.getValue(Delivered.class);
+                    deliveredList.add(delivered);
                 }
-                ordersAdapter.notifyDataSetChanged();
+                deliveredItemsAdapter.notifyDataSetChanged();
             }
 
             @Override
@@ -92,6 +90,9 @@ public class InStockFragment extends Fragment implements ItemClickListener {
 
             }
         });
+
+
+
     }
 
     @Override

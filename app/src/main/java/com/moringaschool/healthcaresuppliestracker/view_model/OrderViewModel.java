@@ -13,11 +13,12 @@ public class OrderViewModel extends ViewModel {
     private HashMap<String,String> formData = new HashMap<>();
 
 
-    public void setData(String itemName, String itemQuantity, String itemDescription, String donorEmail){
+    public void setData( String itemName, String itemQuantity, String itemDescription, String donorEmail, String orderDate){
         formData.put("itemName",itemName);
         formData.put("itemQuantity",itemQuantity);
         formData.put("itemDescription",itemDescription);
         formData.put("donorEmail",donorEmail);
+        formData.put("orderDate: ", orderDate);
         order.setValue(formData);
     }
 

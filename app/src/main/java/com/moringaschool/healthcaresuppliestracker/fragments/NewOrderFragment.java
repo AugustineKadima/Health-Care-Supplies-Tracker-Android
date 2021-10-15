@@ -1,9 +1,11 @@
 package com.moringaschool.healthcaresuppliestracker.fragments;
 
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -15,6 +17,9 @@ import android.widget.EditText;
 
 import com.moringaschool.healthcaresuppliestracker.R;
 import com.moringaschool.healthcaresuppliestracker.view_model.OrderViewModel;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 
 public class NewOrderFragment extends Fragment {
@@ -53,6 +58,7 @@ public class NewOrderFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_new_order, container, false);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -63,6 +69,7 @@ public class NewOrderFragment extends Fragment {
         item_name = view.findViewById(R.id.item_name);
         item_quantity = view.findViewById(R.id.item_quantity);
         donor_email = view.findViewById(R.id.item_donor);
+        LocalDate localDate = LocalDate.now();
 
         btn_order.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,7 +78,8 @@ public class NewOrderFragment extends Fragment {
               String itemQuantity = item_quantity.getText().toString().trim();
               String itemDescription = item_description.getText().toString().trim();
               String donorEmail = donor_email.getText().toString().trim();
-              orderViewModel.setData(itemName,itemQuantity,itemDescription, donorEmail);
+              String orderDate = localDate.toString();
+              orderViewModel.setData(itemName,itemQuantity,itemDescription, donorEmail, orderDate);
             }
         });
     }
