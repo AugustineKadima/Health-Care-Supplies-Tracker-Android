@@ -61,7 +61,11 @@ public class ItemStockFragment extends Fragment {
         dispatchDate = view.findViewById(R.id.single_item_dispatch_date);
         status = view.findViewById(R.id.single_item_status);
 
+        Bundle bundle = getArguments();
 
+//        productName.setText("Product name: "+itemName);
+        quantity.setText("Quantity: "+ String.valueOf(bundle.getString("quantity")));
+        productName.setText(String.valueOf(bundle.getString("itemName")));
         return view;
     }
 }

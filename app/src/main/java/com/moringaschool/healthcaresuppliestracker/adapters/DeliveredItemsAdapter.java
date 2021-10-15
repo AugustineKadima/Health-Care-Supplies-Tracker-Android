@@ -1,15 +1,18 @@
 package com.moringaschool.healthcaresuppliestracker.adapters;
 
 import android.content.Context;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.moringaschool.healthcaresuppliestracker.R;
+import com.moringaschool.healthcaresuppliestracker.fragments.ItemStockFragment;
 import com.moringaschool.healthcaresuppliestracker.modules.Delivered;
 
 import java.util.List;
@@ -36,6 +39,24 @@ public class DeliveredItemsAdapter extends RecyclerView.Adapter<DeliveredItemsAd
         Delivered delivered = deliveredList.get(position);
         holder.list_item_quantity.setText(delivered.getItemQuantity());
         holder.list_item_name.setText(delivered.getItemName());
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ItemStockFragment itemStockFragment = new ItemStockFragment();
+
+                Bundle bundle = new Bundle();
+                bundle.putString("itemName", delivered.getItemName());
+                bundle.putString("deliveryDate", delivered.getDeliveryDate());
+                bundle.putString("quantity", delivered.getItemQuantity());
+                bundle.putString("description", delivered.getItemDescription());
+                bundle.putString("donorEmail", delivered.getDonorEmail());
+                bundle.putString("orderDate", delivered.getOrderDate());
+                itemStockFragment.setArguments(bundle);
+
+                ((AppCompatActivity) mContext).getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container_pages, itemStockFragment ).addToBackStack(null).commit();
+
+            }
+        });
 
     }
 
