@@ -38,7 +38,7 @@ import java.util.Locale;
 public class MapsFragment extends Fragment {
 
     private GoogleMap mMap;
-    Context mContext;
+
     private FusedLocationProviderClient locationProviderClient;
 
     private OnMapReadyCallback callback = new OnMapReadyCallback() {
@@ -61,8 +61,9 @@ public class MapsFragment extends Fragment {
     };
 
     void getDeviceLocation() {
-        locationProviderClient = LocationServices.getFusedLocationProviderClient(mContext);
-        if (ActivityCompat.checkSelfPermission(mContext, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(mContext, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+        locationProviderClient = LocationServices.getFusedLocationProviderClient(requireContext());
+
+        if (ActivityCompat.checkSelfPermission(requireContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(requireContext(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             // TODO: Consider calling
             //    ActivityCompat#requestPermissions
             // here to request the missing permissions, and then overriding
@@ -72,20 +73,8 @@ public class MapsFragment extends Fragment {
             // for ActivityCompat#requestPermissions for more details.
             return;
         }
-        locationProviderClient.getLastLocation().addOnCompleteListener(new OnCompleteListener<Location>() {
-            @Override
-            public void onComplete(@NonNull Task<Location> task) {
-                Location location = task.getResult();
-                Geocoder geocoder = new Geocoder(mContext, Locale.getDefault());
-                try {
-                    List<Address> addresses = geocoder.getFromLocation(location.getLatitude(), location.getLongitude(), 1);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-
-                moveCamera(new LatLng(location.getLatitude(), location.getLongitude()), 15f);
-            }
-        });
+        locationProviderClient.getLastLocation();
+        moveCamera();
     }
 
     private void moveCamera(LatLng latLng, float zoom){
@@ -99,6 +88,7 @@ public class MapsFragment extends Fragment {
                              @Nullable Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_maps, container, false);
+        getDeviceLocation();
         return view;
     }
 
