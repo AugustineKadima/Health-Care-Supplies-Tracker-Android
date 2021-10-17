@@ -77,7 +77,7 @@ public class TrackDetailsFragment extends Fragment {
                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                 MapsFragment mapsFragment = new MapsFragment();
-                mapsFragment.getDeviceLocation();
+//                mapsFragment.getDeviceLocation();
 
                 fragmentTransaction.replace(R.id.fragment_container_pages, mapsFragment);
                 fragmentTransaction.addToBackStack(null);
