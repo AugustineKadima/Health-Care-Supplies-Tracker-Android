@@ -44,7 +44,7 @@
         <entry key="app/src/main/res/layout/fragment_track.xml" value="0.21" />
         <entry key="app/src/main/res/layout/fragment_track_details.xml" value="0.22" />
         <entry key="app/src/main/res/layout/selected_request.xml" value="0.10555555555555556" />
-        <entry key="app/src/main/res/layout/stock_list_item.xml" value="0.18" />
+        <entry key="app/src/main/res/layout/stock_list_item.xml" value="0.25" />
         <entry key="app/src/main/res/layout/track_order_item.xml" value="0.25" />
         <entry key="app/src/main/res/menu/main_menu.xml" value="0.21" />
       </map>

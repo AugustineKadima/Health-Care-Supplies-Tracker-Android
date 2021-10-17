@@ -24,12 +24,15 @@ import com.moringaschool.healthcaresuppliestracker.modules.Delivered;
 import com.moringaschool.healthcaresuppliestracker.modules.Order;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class InStockFragment extends Fragment implements ItemClickListener {
 
     DeliveredItemsAdapter deliveredItemsAdapter;
     ArrayList<Delivered> deliveredList = new ArrayList<>();
+    private List<String> userIds;
+
 
     private FirebaseDatabase db = FirebaseDatabase.getInstance();
     private DatabaseReference root = db.getReference().child("delivered_items");
@@ -78,10 +81,14 @@ public class InStockFragment extends Fragment implements ItemClickListener {
         root.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                userIds.clear();
+//                deliveredList.clear();
                 for(DataSnapshot dataSnapshot: snapshot.getChildren()){
                     Delivered delivered = dataSnapshot.getValue(Delivered.class);
                     deliveredList.add(delivered);
+//                    userIds.add(dataSnapshot.getKey());
                 }
+//                deliveredItemsAdapter.setIds(userIds);
                 deliveredItemsAdapter.notifyDataSetChanged();
             }
 
