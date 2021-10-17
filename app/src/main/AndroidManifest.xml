@@ -43,6 +43,18 @@
             android:name=".routing.ParentActivity"
             android:exported="true" />
         <activity
+            android:name=".donor.DonorDispatchItem"
+            android:exported="true" />
+        <activity
+            android:name=".donor.DonorDispatches"
+            android:exported="true" />
+        <activity
+            android:name=".donor.DonorRequestItem"
+            android:exported="true" />
+        <activity
+            android:name=".donor.DonorRequestList"
+            android:exported="true" />
+        <activity
             android:name=".login_signup.Login"
             android:exported="true" />
         <activity
