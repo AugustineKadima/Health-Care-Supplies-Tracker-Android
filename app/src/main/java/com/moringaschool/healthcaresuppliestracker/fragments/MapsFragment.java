@@ -74,7 +74,8 @@ public class MapsFragment extends Fragment {
             return;
         }
         locationProviderClient.getLastLocation();
-        moveCamera();
+//        moveCamera(new LatLng(location.getLatitude(), location.getLongitude()), 15f);
+
     }
 
     private void moveCamera(LatLng latLng, float zoom){
