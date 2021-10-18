@@ -18,6 +18,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.moringaschool.healthcaresuppliestracker.R;
+import com.moringaschool.healthcaresuppliestracker.fragments.InStockFragment;
 import com.moringaschool.healthcaresuppliestracker.fragments.ItemStockFragment;
 import com.moringaschool.healthcaresuppliestracker.modules.Delivered;
 
@@ -90,6 +91,8 @@ public class DeliveredItemsAdapter extends RecyclerView.Adapter<DeliveredItemsAd
         holder.delete_stock_item.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                RecyclerView.ViewHolder viewHolder = new ViewHolder(holder.itemView);
+                deleteItem(viewHolder.getAdapterPosition());
                 Toast.makeText(mContext, "Deleted", Toast.LENGTH_SHORT).show();
             }
         });
