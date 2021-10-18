@@ -33,7 +33,7 @@
             android:layout_below="@id/track_details_product_name"
             android:text="Donor: "
             android:textColor="@color/black"
-            android:textSize="16sp"
+            android:textSize="14sp"
 
             />
 
@@ -44,7 +44,7 @@
             android:layout_below="@id/track_details_donor_name"
             android:text="Quantity: "
             android:textColor="@color/black"
-            android:textSize="16sp" />
+            android:textSize="14sp" />
 
         <TextView
             android:id="@+id/track_details_order_date"
@@ -53,7 +53,7 @@
             android:layout_below="@id/track_details_quantity"
             android:text="Order Date: "
             android:textColor="@color/black"
-            android:textSize="16sp" />
+            android:textSize="14sp" />
 
         <TextView
             android:id="@+id/track_details_dispatch_date"
@@ -62,7 +62,7 @@
             android:layout_below="@id/track_details_order_date"
             android:text="Dispatch Date:"
             android:textColor="@color/black"
-            android:textSize="16sp" />
+            android:textSize="14sp" />
 
         <TextView
             android:id="@+id/track_details_status"
@@ -71,18 +71,31 @@
             android:layout_below="@id/track_details_dispatch_date"
             android:text="Status: "
             android:textColor="@color/black"
-            android:textSize="16sp" />
+            android:textSize="14sp" />
 
         <TextView
             android:id="@+id/track_details_map"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:minHeight="48dp"
+            android:background="@drawable/edt_txt_shape"
+            android:padding="10dp"
+            android:gravity="center"
+            android:textSize="14sp"
+
             android:text="Map"
+            android:minHeight="48dp"
             android:textColor="@color/healthCareGrey"
-            android:textSize="18sp"
             android:textStyle="bold" />
+        <ImageView
+            android:id="@+id/track_details_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/backspace_24"
+            android:layout_alignParentRight="true"
+            android:minHeight="48dp"
+            android:minWidth="24dp"
+            android:paddingLeft="12dp"/>
 
     </RelativeLayout>
 </RelativeLayout>
