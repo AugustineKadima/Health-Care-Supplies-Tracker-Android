@@ -54,9 +54,11 @@ public class MapsFragment extends Fragment {
          */
         @Override
         public void onMapReady(GoogleMap googleMap) {
+
             LatLng sydney = new LatLng(-34, 151);
             googleMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
             googleMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+            getDeviceLocation();
         }
     };
 
@@ -73,8 +75,15 @@ public class MapsFragment extends Fragment {
             // for ActivityCompat#requestPermissions for more details.
             return;
         }
-        locationProviderClient.getLastLocation();
-//        moveCamera(new LatLng(location.getLatitude(), location.getLongitude()), 15f);
+
+        locationProviderClient.getLastLocation().addOnCompleteListener(new OnCompleteListener<Location>() {
+            @Override
+            public void onComplete(@NonNull Task<Location> task) {
+                Location location = task.getResult();
+
+                moveCamera(new LatLng(location.getLatitude(), location.getLongitude()), 15f);
+            }
+        });
 
     }
 
@@ -89,7 +98,7 @@ public class MapsFragment extends Fragment {
                              @Nullable Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_maps, container, false);
-        getDeviceLocation();
+
         return view;
     }
 

@@ -75,20 +75,23 @@ public class InStockFragment extends Fragment implements ItemClickListener {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize(true);
 
+        userIds = new ArrayList<>();
         deliveredItemsAdapter = new DeliveredItemsAdapter(deliveredList, view.getContext());
         recyclerView.setAdapter(deliveredItemsAdapter);
+
+
 
         root.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                userIds.clear();
-//                deliveredList.clear();
+                userIds.clear();
+                deliveredList.clear();
                 for(DataSnapshot dataSnapshot: snapshot.getChildren()){
                     Delivered delivered = dataSnapshot.getValue(Delivered.class);
                     deliveredList.add(delivered);
-//                    userIds.add(dataSnapshot.getKey());
+                    userIds.add(dataSnapshot.getKey());
                 }
-//                deliveredItemsAdapter.setIds(userIds);
+                deliveredItemsAdapter.setIds(userIds);
                 deliveredItemsAdapter.notifyDataSetChanged();
             }
 
