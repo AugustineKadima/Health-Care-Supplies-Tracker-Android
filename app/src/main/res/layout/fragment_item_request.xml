@@ -83,22 +83,23 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
+            android:background="@drawable/edt_txt_shape"
+            android:gravity="center"
             android:minHeight="48dp"
+            android:padding="10dp"
             android:text="Map"
             android:textColor="@color/healthCareGrey"
-            android:background="@drawable/edt_txt_shape"
-            android:padding="10dp"
-            android:gravity="center"
             android:textSize="14sp"
             android:textStyle="bold" />
+
         <ImageView
             android:id="@+id/request_details_back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/backspace_24"
             android:layout_alignParentRight="true"
-            android:minHeight="48dp"
             android:minWidth="24dp"
-            android:paddingLeft="12dp"/>
+            android:minHeight="48dp"
+            android:paddingLeft="12dp"
+            android:src="@drawable/backspace_24" />
     </RelativeLayout>
 </RelativeLayout>

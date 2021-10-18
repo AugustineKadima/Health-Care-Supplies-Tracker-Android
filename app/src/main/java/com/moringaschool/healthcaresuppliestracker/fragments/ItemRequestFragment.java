@@ -3,10 +3,13 @@ package com.moringaschool.healthcaresuppliestracker.fragments;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import com.moringaschool.healthcaresuppliestracker.R;
 
@@ -61,6 +64,22 @@ public class ItemRequestFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_item_request, container, false);
+        View view = inflater.inflate(R.layout.fragment_item_request, container, false);
+
+        ImageView request_details_back;
+        request_details_back = view.findViewById(R.id.request_details_back);
+
+        request_details_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                AllRequestsFragment allRequestsFragment = new AllRequestsFragment();
+                fragmentTransaction.replace(R.id.fragment_container_donor_pages, allRequestsFragment);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+            }
+        });
+        return view;
     }
 }
