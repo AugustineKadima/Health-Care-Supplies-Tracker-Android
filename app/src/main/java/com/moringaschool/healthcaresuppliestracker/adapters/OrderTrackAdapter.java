@@ -7,6 +7,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,7 +31,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class OrderTrackAdapter extends RecyclerView.Adapter<OrderTrackAdapter.ViewHolder> {
+public class OrderTrackAdapter extends RecyclerView.Adapter<OrderTrackAdapter.ViewHolder> implements Filterable {
 
     Context mContext;
     private List<Order> orders;
@@ -100,6 +102,44 @@ public class OrderTrackAdapter extends RecyclerView.Adapter<OrderTrackAdapter.Vi
     public int getItemCount() {
         return orders.size();
     }
+
+    @Override
+    public Filter getFilter() {
+        return (Filter) ordersFilter;
+    }
+
+    private Filter ordersFilter = new Filter() {
+        @Override
+        protected FilterResults performFiltering(CharSequence constraint) {
+            List<Order> filteredList = new ArrayList<>();
+
+            if (constraint == null || constraint.length() == 0) {
+                filteredList.addAll(ordersAll);
+            }else {
+                String filterPattern = constraint.toString().toLowerCase().trim();
+
+                for (Order item : ordersAll) {
+                    if  (item.getItemName().toLowerCase().contains(filterPattern)) {
+                        filteredList.add(item);
+
+                    }
+
+                }
+            }
+
+            FilterResults results = new FilterResults();
+            results.values = filteredList;
+
+            return results;
+        }
+
+        @Override
+        protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
+           Order.clear();
+           Order.addAll((List) filterResults.values);
+           notifyDataSetChanged();
+        }
+    };
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         private TextView item_name, item_quantity;

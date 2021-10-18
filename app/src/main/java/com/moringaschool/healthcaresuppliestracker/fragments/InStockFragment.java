@@ -3,12 +3,16 @@ package com.moringaschool.healthcaresuppliestracker.fragments;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -19,6 +23,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.moringaschool.healthcaresuppliestracker.R;
 import com.moringaschool.healthcaresuppliestracker.adapters.DeliveredItemsAdapter;
+import com.moringaschool.healthcaresuppliestracker.adapters.InStockAdapter;
 import com.moringaschool.healthcaresuppliestracker.interfaces.ItemClickListener;
 import com.moringaschool.healthcaresuppliestracker.modules.Delivered;
 import com.moringaschool.healthcaresuppliestracker.modules.Order;
@@ -105,5 +110,31 @@ public class InStockFragment extends Fragment implements ItemClickListener {
         fragmentTransaction.replace(R.id.fragment_container_pages, detailsFragment);
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.main_menu, menu);
+
+        MenuItem searchItem = menu.findItem(R.id.search_icon);
+        SearchView searchview = (SearchView) searchItem.getActionView();
+
+        searchview.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                InStockAdapter.getFilter().filter(newText);
+                return false;
+            }
+        });
+        return true;
+    }
+
+    private MenuInflater getMenuInflater() {
+        return null;
     }
 }

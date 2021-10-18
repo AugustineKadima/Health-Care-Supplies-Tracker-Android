@@ -2,6 +2,8 @@ package com.moringaschool.healthcaresuppliestracker.modules;
 
 import org.parceler.Parcel;
 
+import java.util.List;
+
 @Parcel
 public class Order {
 
@@ -21,6 +23,12 @@ public class Order {
         this.itemDescription = itemDescription;
         this.donorEmail = donorEmail;
         this.orderDate = orderDate;
+    }
+
+    public static void clear() {
+    }
+
+    public static void addAll(List values) {
     }
 
     public String getItemName() {
