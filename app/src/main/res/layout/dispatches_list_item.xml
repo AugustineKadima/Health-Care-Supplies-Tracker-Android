@@ -58,7 +58,8 @@
             android:layout_marginBottom="16dp"
             android:minWidth="48dp"
             android:minHeight="48dp"
-            android:src="@drawable/delete_icon" />
+            android:paddingLeft="16dp"
+            android:src="@drawable/delete_242" />
 
     </RelativeLayout>
 

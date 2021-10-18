@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.moringaschool.healthcaresuppliestracker.R;
 
@@ -67,7 +68,9 @@ public class ItemRequestFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_item_request, container, false);
 
         ImageView request_details_back;
+        TextView single_item_map1;
         request_details_back = view.findViewById(R.id.request_details_back);
+        single_item_map1 = view.findViewById(R.id.single_item_map1);
 
         request_details_back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -76,6 +79,17 @@ public class ItemRequestFragment extends Fragment {
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                 AllRequestsFragment allRequestsFragment = new AllRequestsFragment();
                 fragmentTransaction.replace(R.id.fragment_container_donor_pages, allRequestsFragment);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+            }
+        });
+
+        single_item_map1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+                MapsFragment mapsFragment= new MapsFragment();
+                fragmentTransaction.replace(R.id.fragment_container_donor_pages, mapsFragment);
                 fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
             }

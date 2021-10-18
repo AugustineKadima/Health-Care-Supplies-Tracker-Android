@@ -55,7 +55,7 @@ public class ItemStockFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_item_stock, container, false);
         ImageView stock_details_back;
-        TextView productName, donor, quantity, orderDate, dispatchDate, status;
+        TextView productName, donor, quantity, orderDate, dispatchDate, status, single_item_map;
 
         productName = view.findViewById(R.id.single_item_product_name);
         donor = view.findViewById(R.id.single_item_donor_name);
@@ -64,6 +64,7 @@ public class ItemStockFragment extends Fragment {
         dispatchDate = view.findViewById(R.id.single_item_dispatch_date);
         status = view.findViewById(R.id.single_item_status);
         stock_details_back = view.findViewById(R.id.stock_details_back);
+        single_item_map = view.findViewById(R.id.single_item_map);
 
         Bundle bundle = getArguments();
 
@@ -82,6 +83,19 @@ public class ItemStockFragment extends Fragment {
                 fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
 
+            }
+        });
+
+        single_item_map.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                MapsFragment mapsFragment = new MapsFragment();
+
+                fragmentTransaction.replace(R.id.fragment_container_pages, mapsFragment);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
             }
         });
         return view;
