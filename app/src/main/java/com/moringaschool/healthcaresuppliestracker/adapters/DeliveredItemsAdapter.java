@@ -67,7 +67,7 @@ public class DeliveredItemsAdapter extends RecyclerView.Adapter<DeliveredItemsAd
     @Override
     public void onBindViewHolder(@NonNull DeliveredItemsAdapter.ViewHolder holder, int position) {
         Delivered delivered = deliveredList.get(position);
-        holder.list_item_quantity.setText(delivered.getItemQuantity());
+        holder.list_item_quantity.setText(delivered.getQuantity().toString());
         holder.list_item_name.setText(delivered.getItemName());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -76,11 +76,11 @@ public class DeliveredItemsAdapter extends RecyclerView.Adapter<DeliveredItemsAd
 
                 Bundle bundle = new Bundle();
                 bundle.putString("itemName", delivered.getItemName());
-                bundle.putString("deliveryDate", delivered.getDeliveryDate());
-                bundle.putString("quantity", delivered.getItemQuantity());
-                bundle.putString("description", delivered.getItemDescription());
-                bundle.putString("donorEmail", delivered.getDonorEmail());
-                bundle.putString("orderDate", delivered.getOrderDate());
+                //bundle.putString("deliveryDate", delivered.getDeliveryDate());
+                bundle.putString("quantity", delivered.getQuantity().toString());
+                bundle.putString("description", delivered.getDescription());
+                //bundle.putString("donorEmail", delivered.getDonorEmail());
+                bundle.putString("orderDate", delivered.getOrderStatus().toString());
                 itemStockFragment.setArguments(bundle);
 
                 ((AppCompatActivity) mContext).getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container_pages, itemStockFragment ).addToBackStack(null).commit();
