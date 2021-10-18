@@ -92,7 +92,7 @@ public class DeliveredItemsAdapter extends RecyclerView.Adapter<DeliveredItemsAd
             @Override
             public void onClick(View view) {
                 RecyclerView.ViewHolder viewHolder = new ViewHolder(holder.itemView);
-                deleteItem(viewHolder.getAdapterPosition());
+                deleteItem(position);
                 Toast.makeText(mContext, "Deleted", Toast.LENGTH_SHORT).show();
             }
         });
