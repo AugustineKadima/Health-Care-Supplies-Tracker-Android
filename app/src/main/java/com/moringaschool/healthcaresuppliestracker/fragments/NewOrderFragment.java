@@ -9,11 +9,13 @@ import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import android.util.Patterns;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.moringaschool.healthcaresuppliestracker.R;
 import com.moringaschool.healthcaresuppliestracker.view_model.OrderViewModel;
@@ -80,7 +82,30 @@ public class NewOrderFragment extends Fragment {
               String donorEmail = donor_email.getText().toString().trim();
               String orderDate = localDate.toString();
               String status = "Pending";
-              orderViewModel.setData(itemName,itemQuantity,itemDescription, donorEmail, orderDate, status);
+
+              if(itemDescription.isEmpty() && itemName.isEmpty() && itemQuantity.isEmpty() && donorEmail.isEmpty()){
+                  Toast.makeText(getContext(), "Failed! Fill all fields to proceed", Toast.LENGTH_SHORT).show();
+              }else if(itemName.isEmpty()){
+                  item_name.setError("Item name required!");
+                  item_name.requestFocus();
+              }else if(itemQuantity.isEmpty()){
+                  item_quantity.setError("Quantity required!");
+                  item_quantity.requestFocus();
+              }else if(itemDescription.isEmpty()){
+                  item_description.setError("Item description required!");
+                  item_description.requestFocus();
+              }else if(donorEmail.isEmpty()){
+                  donor_email.setError("Email required!");
+                  donor_email.requestFocus();
+              }else if(!Patterns.EMAIL_ADDRESS.matcher(donorEmail).matches()){
+                  donor_email.setError("Use the correct email format!");
+                  donor_email.requestFocus();
+              }
+
+              else{
+                  orderViewModel.setData(itemName,itemQuantity,itemDescription, donorEmail, orderDate, status);
+              }
+
             }
         });
     }

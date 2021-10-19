@@ -35,7 +35,7 @@
             android:layout_below="@id/single_item_product_name"
             android:text="Donor:"
             android:textColor="@color/black"
-            android:textSize="16sp"
+            android:textSize="14sp"
 
             />
 
@@ -46,7 +46,7 @@
             android:layout_below="@id/single_item_donor_name"
             android:text="Quantity:"
             android:textColor="@color/black"
-            android:textSize="16sp" />
+            android:textSize="14sp" />
 
         <TextView
             android:id="@+id/single_item_order_date"
@@ -55,7 +55,7 @@
             android:layout_below="@id/single_item_quantity"
             android:text="Date:"
             android:textColor="@color/black"
-            android:textSize="16sp" />
+            android:textSize="14sp" />
 
         <TextView
             android:id="@+id/single_item_dispatch_date"
@@ -64,7 +64,7 @@
             android:layout_below="@id/single_item_order_date"
             android:text="Dispatch Date:"
             android:textColor="@color/black"
-            android:textSize="16sp" />
+            android:textSize="14sp" />
 
         <TextView
             android:id="@+id/single_item_status"
@@ -73,7 +73,7 @@
             android:layout_below="@id/single_item_dispatch_date"
             android:text="Status:"
             android:textColor="@color/black"
-            android:textSize="16sp" />
+            android:textSize="14sp" />
 
         <TextView
             android:id="@+id/single_item_map"

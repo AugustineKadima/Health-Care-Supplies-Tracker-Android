@@ -81,6 +81,7 @@ public class DeliveredItemsAdapter extends RecyclerView.Adapter<DeliveredItemsAd
                 bundle.putString("description", delivered.getItemDescription());
                 bundle.putString("donorEmail", delivered.getDonorEmail());
                 bundle.putString("orderDate", delivered.getOrderDate());
+                bundle.putString("status", "Delivered");
                 itemStockFragment.setArguments(bundle);
 
                 ((AppCompatActivity) mContext).getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container_pages, itemStockFragment ).addToBackStack(null).commit();

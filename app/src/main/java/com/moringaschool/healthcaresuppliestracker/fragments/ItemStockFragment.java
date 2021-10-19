@@ -71,6 +71,9 @@ public class ItemStockFragment extends Fragment {
 //        productName.setText("Product name: "+itemName);
         quantity.setText("Quantity: "+ String.valueOf(bundle.getString("quantity")));
         productName.setText(String.valueOf(bundle.getString("itemName")));
+        orderDate.setText("Order date: " + String.valueOf(bundle.getString("orderDate")));
+        status.setText("Status: "+ String.valueOf(bundle.getString("status")));
+        donor.setText("Donor email: " + String.valueOf(bundle.getString("donorEmail")));
 
 //        Back button
         stock_details_back.setOnClickListener(new View.OnClickListener() {

@@ -93,9 +93,16 @@ public class OrderTrackAdapter extends RecyclerView.Adapter<OrderTrackAdapter.Vi
                 deliveredItems.put("itemDescription", order.getItemDescription());
                 deliveredItems.put("deliveryDate", deliveryDate);
                 deliveredItems.put("orderDate", order.getOrderDate());
+                order.setStatus("Delivered");
+                deliveredItems.put("status", order.getStatus());
                 deliveredRef.push().setValue(deliveredItems);
             }
         });
+
+        if(order.getStatus().equals("Delivered")){
+            holder.btn_confirm_delivery.setText("Delivered");
+            holder.btn_confirm_delivery.setEnabled(false);
+        }
 
     }
 
