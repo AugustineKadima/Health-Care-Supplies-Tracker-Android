@@ -79,7 +79,8 @@ public class NewOrderFragment extends Fragment {
               String itemDescription = item_description.getText().toString().trim();
               String donorEmail = donor_email.getText().toString().trim();
               String orderDate = localDate.toString();
-              orderViewModel.setData(itemName,itemQuantity,itemDescription, donorEmail, orderDate);
+              String status = "Pending";
+              orderViewModel.setData(itemName,itemQuantity,itemDescription, donorEmail, orderDate, status);
             }
         });
     }
