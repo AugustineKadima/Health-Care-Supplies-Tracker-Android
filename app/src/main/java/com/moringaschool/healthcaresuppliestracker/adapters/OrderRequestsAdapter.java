@@ -1,15 +1,19 @@
 package com.moringaschool.healthcaresuppliestracker.adapters;
 
 import android.content.Context;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.moringaschool.healthcaresuppliestracker.R;
+import com.moringaschool.healthcaresuppliestracker.fragments.ItemRequestFragment;
+import com.moringaschool.healthcaresuppliestracker.fragments.TrackDetailsFragment;
 import com.moringaschool.healthcaresuppliestracker.interfaces.ItemClickListener;
 import com.moringaschool.healthcaresuppliestracker.modules.Order;
 
@@ -45,7 +49,19 @@ public class OrderRequestsAdapter extends RecyclerView.Adapter<OrderRequestsAdap
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                clickListener.onItemClick(order);
+
+                Bundle bundle = new Bundle();
+                bundle.putString("_quantity", order.getItemQuantity());
+                bundle.putString("_donor_email", order.getDonorEmail());
+                bundle.putString("_item_name", order.getItemName());
+                bundle.putString("status", order.getStatus());
+                bundle.putString("orderDate", order.getOrderDate());
+                ItemRequestFragment itemRequestFragment = new ItemRequestFragment();
+                itemRequestFragment.setArguments(bundle);
+
+//                clickListener.onItemClick(order);
+                ((AppCompatActivity) mContext).getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container_donor_pages, itemRequestFragment).addToBackStack(null).commit();
+
             }
         });
     }

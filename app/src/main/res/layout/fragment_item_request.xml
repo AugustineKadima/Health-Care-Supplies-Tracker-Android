@@ -18,7 +18,7 @@
         android:padding="16dp">
 
         <TextView
-            android:id="@+id/single_item_product_name"
+            android:id="@+id/single_item_product_name1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
@@ -28,40 +28,40 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/single_item_donor_name"
+            android:id="@+id/single_item_donor_name1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/single_item_product_name"
-            android:text="Hospital:"
+            android:layout_below="@id/single_item_product_name1"
+            android:text="Donor:"
             android:textColor="@color/black"
-            android:textSize="18sp" />
+            android:textSize="14sp" />
 
         <TextView
-            android:id="@+id/single_item_quantity"
+            android:id="@+id/single_item_quantity1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/single_item_donor_name"
-            android:text="Location:"
-            android:textColor="@color/black"
-            android:textSize="18sp" />
-
-        <TextView
-            android:id="@+id/single_item_order_date"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/single_item_quantity"
+            android:layout_below="@id/single_item_donor_name1"
             android:text="Quantity:"
             android:textColor="@color/black"
-            android:textSize="18sp" />
+            android:textSize="14sp" />
 
         <TextView
-            android:id="@+id/single_item_dispatch_date"
+            android:id="@+id/single_item_order_date1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/single_item_order_date"
-            android:text="Delivery Status:"
+            android:layout_below="@id/single_item_quantity1"
+            android:text="Order date:"
             android:textColor="@color/black"
-            android:textSize="18sp" />
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/single_item_status1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/single_item_order_date1"
+            android:text="Status:"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn_confirm_delivery"

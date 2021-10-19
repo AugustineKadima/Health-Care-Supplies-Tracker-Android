@@ -68,7 +68,7 @@ public class ItemRequestFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_item_request, container, false);
 
         ImageView request_details_back;
-        TextView single_item_map1;
+        TextView single_item_map1, quantity, productName, orderDate, status, donor;
         request_details_back = view.findViewById(R.id.request_details_back);
         single_item_map1 = view.findViewById(R.id.single_item_map1);
 
@@ -94,6 +94,19 @@ public class ItemRequestFragment extends Fragment {
                 fragmentTransaction.commit();
             }
         });
+
+        quantity = view.findViewById(R.id.single_item_quantity1);
+        productName = view.findViewById(R.id.single_item_product_name1);
+        orderDate = view.findViewById(R.id.single_item_order_date1);
+        status = view.findViewById(R.id.single_item_status1);
+        donor = view.findViewById(R.id.single_item_donor_name1);
+
+        Bundle bundle = getArguments();
+        quantity.setText("Quantity: "+ String.valueOf(bundle.getString("_quantity")));
+        productName.setText(String.valueOf(bundle.getString("_item_name")));
+        orderDate.setText("Order date: " + String.valueOf(bundle.getString("orderDate")));
+        status.setText("Status: "+ String.valueOf(bundle.getString("status")));
+        donor.setText("Donor email: " + String.valueOf(bundle.getString("_donor_email")));
         return view;
     }
 }
