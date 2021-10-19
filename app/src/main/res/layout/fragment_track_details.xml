@@ -79,13 +79,13 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:background="@drawable/edt_txt_shape"
-            android:padding="10dp"
             android:gravity="center"
-            android:textSize="14sp"
+            android:minHeight="48dp"
+            android:padding="10dp"
 
             android:text="Map"
-            android:minHeight="48dp"
             android:textColor="@color/healthCareGrey"
+            android:textSize="14sp"
             android:textStyle="bold" />
 
         <ImageView

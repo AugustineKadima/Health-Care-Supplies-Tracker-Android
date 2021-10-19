@@ -72,6 +72,8 @@ public class TrackDetailsFragment extends Fragment {
         quantity.setText("Quantity: "+ String.valueOf(bundle.getString("_quantity")));
         productName.setText(String.valueOf(bundle.getString("_item_name")));
         donor.setText("Donor email: "+ String.valueOf(bundle.getString("_donor_email")));
+        status.setText("Status: " + String.valueOf(bundle.getString("status")));
+        orderDate.setText("Order date: " + bundle.getString("orderDate"));
 
         track_details_map.setOnClickListener(new View.OnClickListener() {
             @Override
