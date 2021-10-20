@@ -16,6 +16,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -37,6 +38,7 @@ public class ParentActivity extends AppCompatActivity {
     TextView new_order, track, in_stock;
     OrderViewModel orderViewModel;
     DeliveredViewModel deliveredViewModel;
+    ProgressBar progressBar;
     FirebaseDatabase database = FirebaseDatabase.getInstance();
 //    DatabaseReference deliveredRef = database.getReference("delivered_items");
     DatabaseReference myRef = database.getReference("orders");
@@ -88,8 +90,10 @@ public class ParentActivity extends AppCompatActivity {
         new_order =(TextView) findViewById(R.id.new_order_header);
         track = (TextView) findViewById(R.id.track_orders_header);
         in_stock = (TextView) findViewById(R.id.in_stock_header);
+        progressBar = (ProgressBar) findViewById(R.id.progress_bar);
 
         inStock();
+
 
 //      Navigate to the order fragment
         new_order.setOnClickListener(new View.OnClickListener() {
@@ -163,6 +167,7 @@ public class ParentActivity extends AppCompatActivity {
     }
 
     private void newOrder() {
+        progressBar.setVisibility(View.INVISIBLE);
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         NewOrderFragment newOrderFragment = new NewOrderFragment();
@@ -171,21 +176,24 @@ public class ParentActivity extends AppCompatActivity {
         fragmentTransaction.commit();
     }
     private void trackOrder() {
+        progressBar.setVisibility(View.VISIBLE);
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         TrackFragment trackFragment = new TrackFragment();
         fragmentTransaction.replace(R.id.fragment_container_pages, trackFragment);
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
-
+        progressBar.setVisibility(View.INVISIBLE);
     }
     private void inStock() {
+        progressBar.setVisibility(View.VISIBLE);
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         InStockFragment inStockFragment = new InStockFragment();
         fragmentTransaction.replace(R.id.fragment_container_pages, inStockFragment);
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
+        progressBar.setVisibility(View.INVISIBLE);
     }
 
 }

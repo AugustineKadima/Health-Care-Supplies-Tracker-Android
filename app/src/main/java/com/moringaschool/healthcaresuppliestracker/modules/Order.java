@@ -10,17 +10,23 @@ public class Order {
     private String itemDescription;
     private String donorEmail;
     private String orderDate;
+    private String status;
 
     public Order(){
 
     }
 
-    public Order(String itemName, String itemQuantity, String itemDescription, String donorEmail, String orderDate) {
+    public Order(String itemName, String itemQuantity, String itemDescription, String donorEmail, String orderDate, String status) {
         this.itemName = itemName;
         this.itemQuantity = itemQuantity;
         this.itemDescription = itemDescription;
         this.donorEmail = donorEmail;
         this.orderDate = orderDate;
+        this.status = status;
+    }
+
+    public String getStatus() {
+        return status;
     }
 
     public String getItemName() {
@@ -41,5 +47,29 @@ public class Order {
 
     public String getOrderDate() {
         return orderDate;
+    }
+
+    public void setItemName(String itemName) {
+        this.itemName = itemName;
+    }
+
+    public void setItemQuantity(String itemQuantity) {
+        this.itemQuantity = itemQuantity;
+    }
+
+    public void setItemDescription(String itemDescription) {
+        this.itemDescription = itemDescription;
+    }
+
+    public void setDonorEmail(String donorEmail) {
+        this.donorEmail = donorEmail;
+    }
+
+    public void setOrderDate(String orderDate) {
+        this.orderDate = orderDate;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }

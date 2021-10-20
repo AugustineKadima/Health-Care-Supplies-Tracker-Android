@@ -76,11 +76,16 @@ public class DeliveredItemsAdapter extends RecyclerView.Adapter<DeliveredItemsAd
 
                 Bundle bundle = new Bundle();
                 bundle.putString("itemName", delivered.getItemName());
+
                 //bundle.putString("deliveryDate", delivered.getDeliveryDate());
                 bundle.putString("quantity", delivered.getQuantity().toString());
                 bundle.putString("description", delivered.getDescription());
                 //bundle.putString("donorEmail", delivered.getDonorEmail());
                 bundle.putString("orderDate", delivered.getOrderStatus().toString());
+
+             
+                bundle.putString("status", "Delivered");
+
                 itemStockFragment.setArguments(bundle);
 
                 ((AppCompatActivity) mContext).getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container_pages, itemStockFragment ).addToBackStack(null).commit();
@@ -92,7 +97,7 @@ public class DeliveredItemsAdapter extends RecyclerView.Adapter<DeliveredItemsAd
             @Override
             public void onClick(View view) {
                 RecyclerView.ViewHolder viewHolder = new ViewHolder(holder.itemView);
-                deleteItem(viewHolder.getAdapterPosition());
+                deleteItem(position);
                 Toast.makeText(mContext, "Deleted", Toast.LENGTH_SHORT).show();
             }
         });

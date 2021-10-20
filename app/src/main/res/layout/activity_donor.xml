@@ -18,46 +18,45 @@
         app:titleMarginStart="16dp" />
 
     <RelativeLayout
+        android:id="@+id/nav_comp_2"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/white"
-        android:elevation="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_height="60dp"
         android:layout_below="@+id/toolbar"
-        android:id="@+id/nav_comp_2">
+        android:layout_marginBottom="8dp"
+        android:background="@color/white"
+        android:elevation="8dp">
 
-    <TextView
-        android:id="@+id/all_requests_header"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
-        android:gravity="center"
-        android:minHeight="48dp"
-        android:text="All Requests"
-        android:textColor="@color/healthCareDarkBlue"
-        android:textSize="18sp"
-        android:textStyle="bold" />
+        <TextView
+            android:id="@+id/all_requests_header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:gravity="center"
+            android:minHeight="48dp"
+            android:text="All Requests"
+            android:textColor="@color/healthCareDarkBlue"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
 
-
-    <TextView
-        android:id="@+id/dispatches_header"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
-        android:text="Dispatches"
-        android:minHeight="48dp"
-        android:gravity="center"
-        android:textColor="@color/healthCareGrey"
-        android:textSize="18sp"
-        android:textStyle="bold" />
+        <TextView
+            android:id="@+id/dispatches_header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:gravity="center"
+            android:minHeight="48dp"
+            android:text="Dispatches"
+            android:textColor="@color/healthCareGrey"
+            android:textSize="18sp"
+            android:textStyle="bold" />
     </RelativeLayout>
 
     <FrameLayout

@@ -1,6 +1,7 @@
 package com.moringaschool.healthcaresuppliestracker.adapters;
 
 import android.content.Context;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -45,6 +46,8 @@ public class DispatchesAdapter extends RecyclerView.Adapter<DispatchesAdapter.Vi
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Bundle bundle = new Bundle();
+
                 clickListener.onItemClick(order);
             }
         });

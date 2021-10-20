@@ -59,6 +59,7 @@ public class OrderTrackAdapter extends RecyclerView.Adapter<OrderTrackAdapter.Vi
         Order order = orders.get(position);
         holder.item_name.setText(order.getItemName());
         holder.item_quantity.setText(order.getItemQuantity());
+
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -66,6 +67,8 @@ public class OrderTrackAdapter extends RecyclerView.Adapter<OrderTrackAdapter.Vi
                 bundle.putString("_quantity", order.getItemQuantity());
                 bundle.putString("_donor_email", order.getDonorEmail());
                 bundle.putString("_item_name", order.getItemName());
+                bundle.putString("status", order.getStatus());
+                bundle.putString("orderDate", order.getOrderDate());
                 TrackDetailsFragment trackDetailsFragment = new TrackDetailsFragment();
                 trackDetailsFragment.setArguments(bundle);
 
@@ -90,9 +93,16 @@ public class OrderTrackAdapter extends RecyclerView.Adapter<OrderTrackAdapter.Vi
                 deliveredItems.put("itemDescription", order.getItemDescription());
                 deliveredItems.put("deliveryDate", deliveryDate);
                 deliveredItems.put("orderDate", order.getOrderDate());
+                order.setStatus("Delivered");
+                deliveredItems.put("status", order.getStatus());
                 deliveredRef.push().setValue(deliveredItems);
             }
         });
+
+        if(order.getStatus().equals("Delivered")){
+            holder.btn_confirm_delivery.setText("Delivered");
+            holder.btn_confirm_delivery.setEnabled(false);
+        }
 
     }
 
@@ -109,6 +119,7 @@ public class OrderTrackAdapter extends RecyclerView.Adapter<OrderTrackAdapter.Vi
 
             item_name = itemView.findViewById(R.id.track_item_name);
             item_quantity = itemView.findViewById(R.id.track_item_quantity);
+
             btn_confirm_delivery = itemView.findViewById(R.id.btn_confirm_delivery);
 //            btn_confirm_delivery.setOnClickListener(new View.OnClickListener() {
 //                @Override

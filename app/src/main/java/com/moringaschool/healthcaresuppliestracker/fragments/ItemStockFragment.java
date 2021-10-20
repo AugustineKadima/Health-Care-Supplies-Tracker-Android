@@ -3,10 +3,13 @@ package com.moringaschool.healthcaresuppliestracker.fragments;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.moringaschool.healthcaresuppliestracker.R;
@@ -51,8 +54,8 @@ public class ItemStockFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_item_stock, container, false);
-
-        TextView productName, donor, quantity, orderDate, dispatchDate, status;
+        ImageView stock_details_back;
+        TextView productName, donor, quantity, orderDate, dispatchDate, status, single_item_map;
 
         productName = view.findViewById(R.id.single_item_product_name);
         donor = view.findViewById(R.id.single_item_donor_name);
@@ -60,12 +63,44 @@ public class ItemStockFragment extends Fragment {
         orderDate = view.findViewById(R.id.single_item_order_date);
         dispatchDate = view.findViewById(R.id.single_item_dispatch_date);
         status = view.findViewById(R.id.single_item_status);
+        stock_details_back = view.findViewById(R.id.stock_details_back);
+        single_item_map = view.findViewById(R.id.single_item_map);
 
         Bundle bundle = getArguments();
 
 //        productName.setText("Product name: "+itemName);
         quantity.setText("Quantity: "+ String.valueOf(bundle.getString("quantity")));
         productName.setText(String.valueOf(bundle.getString("itemName")));
+        orderDate.setText("Order date: " + String.valueOf(bundle.getString("orderDate")));
+        status.setText("Status: "+ String.valueOf(bundle.getString("status")));
+        donor.setText("Donor email: " + String.valueOf(bundle.getString("donorEmail")));
+
+//        Back button
+        stock_details_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                InStockFragment inStockFragment = new InStockFragment();
+                fragmentTransaction.replace(R.id.fragment_container_pages, inStockFragment);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+
+            }
+        });
+
+        single_item_map.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                MapsFragment mapsFragment = new MapsFragment();
+
+                fragmentTransaction.replace(R.id.fragment_container_pages, mapsFragment);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+            }
+        });
         return view;
     }
 }

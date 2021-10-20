@@ -3,11 +3,13 @@ package com.moringaschool.healthcaresuppliestracker.fragments;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.moringaschool.healthcaresuppliestracker.R;
@@ -65,6 +67,8 @@ public class DispatchDetailsFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_dispatch_details, container, false);
         TextView productName, donor, quantity, orderDate, dispatchDate, status, dispatch_details_map;
+        ImageView dispatch_details_back;
+
         productName = view.findViewById(R.id.dispatch_details_product_name);
         donor = view.findViewById(R.id.dispatch_details_donor_name);
         quantity = view.findViewById(R.id.dispatch_details_quantity);
@@ -72,6 +76,8 @@ public class DispatchDetailsFragment extends Fragment {
         dispatchDate = view.findViewById(R.id.dispatch_details_dispatch_date);
         status = view.findViewById(R.id.dispatch_details_status);
         dispatch_details_map = view.findViewById(R.id.dispatch_details_map);
+        dispatch_details_back = view.findViewById(R.id.dispatch_details_back);
+
         dispatch_details_map.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -86,6 +92,17 @@ public class DispatchDetailsFragment extends Fragment {
             }
         });
 
+        dispatch_details_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                DispatchesFragment dispatchesFragment = new DispatchesFragment();
+                fragmentTransaction.replace(R.id.fragment_container_donor_pages, dispatchesFragment);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+            }
+        });
         return view;
     }
 }
