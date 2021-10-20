@@ -23,15 +23,18 @@ import com.moringaschool.healthcaresuppliestracker.interfaces.ItemClickListener;
 import com.moringaschool.healthcaresuppliestracker.modules.Order;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class DispatchesFragment extends Fragment implements ItemClickListener {
 
     private DispatchesAdapter dispatchesAdapter;
     private ArrayList<Order> orderList = new ArrayList<>();
+    private List<String> userIds;
+
 
     private FirebaseDatabase db = FirebaseDatabase.getInstance();
-    private DatabaseReference root = db.getReference().child("orders");
+    private DatabaseReference root = db.getReference().child("dispatches");
 
     public DispatchesFragment() {
         // Required empty public constructor
@@ -71,6 +74,8 @@ public class DispatchesFragment extends Fragment implements ItemClickListener {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize(true);
 
+        userIds = new ArrayList<>();
+
         dispatchesAdapter = new DispatchesAdapter(orderList, view.getContext(), this);
         recyclerView.setAdapter(dispatchesAdapter);
 
@@ -78,10 +83,14 @@ public class DispatchesFragment extends Fragment implements ItemClickListener {
         root.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                userIds.clear();
+                orderList.clear();
                 for(DataSnapshot dataSnapshot: snapshot.getChildren()){
                     Order order = dataSnapshot.getValue(Order.class);
                     orderList.add(order);
+                    userIds.add(dataSnapshot.getKey());
                 }
+                dispatchesAdapter.setIds(userIds);
                 dispatchesAdapter.notifyDataSetChanged();
             }
 

@@ -28,7 +28,7 @@ import java.util.ArrayList;
 public class AllRequestsFragment extends Fragment implements ItemClickListener {
 
     private OrderRequestsAdapter ordersAdapter;
-    private ArrayList<Order> orderList = new ArrayList<>();
+    private ArrayList<Order> requestList = new ArrayList<>();
 
     private FirebaseDatabase db = FirebaseDatabase.getInstance();
     private DatabaseReference root = db.getReference().child("orders");
@@ -72,16 +72,16 @@ public class AllRequestsFragment extends Fragment implements ItemClickListener {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize(true);
 
-        ordersAdapter = new OrderRequestsAdapter(orderList, view.getContext(), this);
-        recyclerView.setAdapter(ordersAdapter);
 
+        ordersAdapter = new OrderRequestsAdapter(requestList, view.getContext());
+        recyclerView.setAdapter(ordersAdapter);
 
         root.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for(DataSnapshot dataSnapshot: snapshot.getChildren()){
                     Order order = dataSnapshot.getValue(Order.class);
-                    orderList.add(order);
+                    requestList.add(order);
                 }
                 ordersAdapter.notifyDataSetChanged();
             }
