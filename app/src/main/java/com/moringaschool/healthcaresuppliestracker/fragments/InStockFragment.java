@@ -8,29 +8,39 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.moringaschool.healthcaresuppliestracker.Constants;
 import com.moringaschool.healthcaresuppliestracker.R;
 import com.moringaschool.healthcaresuppliestracker.adapters.DeliveredItemsAdapter;
 import com.moringaschool.healthcaresuppliestracker.interfaces.ItemClickListener;
 import com.moringaschool.healthcaresuppliestracker.modules.Delivered;
 import com.moringaschool.healthcaresuppliestracker.modules.Order;
+import com.moringaschool.healthcaresuppliestracker.network.API;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 
 public class InStockFragment extends Fragment implements ItemClickListener {
 
     DeliveredItemsAdapter deliveredItemsAdapter;
-    ArrayList<Delivered> deliveredList = new ArrayList<>();
+    List<Delivered> deliveredList = new ArrayList<>();
     private List<String> userIds;
 
 
@@ -69,7 +79,7 @@ public class InStockFragment extends Fragment implements ItemClickListener {
     }
 
     private void initRecyclerView(View view) {
-        RecyclerView recyclerView = view.findViewById(R.id.recycler_view_in_stock);
+        /*RecyclerView recyclerView = view.findViewById(R.id.recycler_view_in_stock);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
 
         recyclerView.setLayoutManager(layoutManager);
@@ -100,7 +110,50 @@ public class InStockFragment extends Fragment implements ItemClickListener {
 
             }
         });
+        */
 
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(Constants.BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        API api = retrofit.create(API.class);
+
+        Call<List<Delivered>> call = api.getPropertiesInASpecificLocation();
+
+        call.enqueue(new Callback<List<Delivered>>() {
+            @Override
+            public void onResponse(Call<List<Delivered>> call, Response<List<Delivered>> response) {
+
+                if (response.isSuccessful()) {
+                    Toast.makeText(getContext(), "Request Successful", Toast.LENGTH_SHORT).show();
+
+                    deliveredList = response.body();
+                    Log.d("Response" , deliveredList.get(2).getItemName());
+                    RecyclerView recyclerView = view.findViewById(R.id.recycler_view_in_stock);
+                    LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
+
+                    recyclerView.setLayoutManager(layoutManager);
+                    recyclerView.setHasFixedSize(true);
+
+                    userIds = new ArrayList<>();
+                    deliveredItemsAdapter = new DeliveredItemsAdapter(deliveredList, view.getContext());
+                    recyclerView.setAdapter(deliveredItemsAdapter);
+
+                } else {
+                    //Log.d(TAG, "onResponse: "+ restaurants);
+                    //showUnsuccessfulMessage();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<Delivered>> call, Throwable t) {
+                Toast.makeText(getContext(), "Request Failed", Toast.LENGTH_SHORT).show();
+                //hideProgressBar();
+                //Log.d(TAG, "onFailure: ", t);
+                //showFailureMessage();
+
+            }
+        });
 
 
     }
