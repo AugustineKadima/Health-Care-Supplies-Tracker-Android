@@ -34,7 +34,7 @@
             android:layout_below="@id/dispatch_details_product_name"
             android:text="Donor:"
             android:textColor="@color/black"
-            android:textSize="16sp"
+            android:textSize="14sp"
 
             />
 
@@ -45,7 +45,7 @@
             android:layout_below="@id/dispatch_details_donor_name"
             android:text="Quantity:"
             android:textColor="@color/black"
-            android:textSize="16sp" />
+            android:textSize="14sp" />
 
         <TextView
             android:id="@+id/dispatch_details_order_date"
@@ -54,7 +54,7 @@
             android:layout_below="@id/dispatch_details_quantity"
             android:text="Date:"
             android:textColor="@color/black"
-            android:textSize="16sp" />
+            android:textSize="14sp" />
 
         <TextView
             android:id="@+id/dispatch_details_dispatch_date"
@@ -63,7 +63,7 @@
             android:layout_below="@id/dispatch_details_order_date"
             android:text="Dispatch Date:"
             android:textColor="@color/black"
-            android:textSize="16sp" />
+            android:textSize="14sp" />
 
         <TextView
             android:id="@+id/dispatch_details_status"
@@ -79,12 +79,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
+            android:background="@drawable/edt_txt_shape"
+            android:gravity="center"
             android:minHeight="48dp"
+            android:padding="10dp"
             android:text="Map"
             android:textColor="@color/healthCareGrey"
-            android:background="@drawable/edt_txt_shape"
-            android:padding="10dp"
-            android:gravity="center"
             android:textSize="14sp"
             android:textStyle="bold" />
 
